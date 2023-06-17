@@ -1,0 +1,30 @@
+# Ignorar a pasta node_modules
+node_modules/
+
+# Ignorar a pasta .expo
+.expo/
+
+# Ignorar a pasta de build dist
+dist/
+
+# Ignorar arquivos de depuração do npm
+npm-debug.*
+
+# Ignorar arquivos de certificado e chave
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Ignorar arquivos .orig gerados por ferramentas de merge
+*.orig.*
+
+# Ignorar a pasta de build do aplicativo web
+web-build/
+
+# Ignorar arquivos específicos do macOS
+.DS_Store
+
+# Arquivos temporários criados pelo Metro para verificar a integridade do file watcher
+.metro-health-check*
