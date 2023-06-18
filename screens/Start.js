@@ -1,87 +1,96 @@
-import * as React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useFonts } from 'expo-font';
 
 const Start = () => {
   const navigation = useNavigation();
+  const [] = useFonts({
+    'Poppins_semibold': require('../assets/fonts/Poppins_semibold.ttf'),
+  });
 
   return (
-    <View style={styles.start}>
+    <View style={styles.container}>
       <Image
-        style={styles.signInIcon}
-        contentFit="cover"
-        source={require("../assets/sign-in.png")}
+        style={styles.backgroundImage}
+        resizeMode="cover"
+        source={require("../assets/sign-in.jpg")}
       />
-      <Image
-        style={[styles.academiaWorldGym11, styles.comearPosition]}
-        contentFit="cover"
-        source={require("../assets/academia-world-gym-1-1.png")}
-      />
-      <TouchableOpacity
-        style={styles.vectorParent}
-        activeOpacity={0.2}
-        onPress={() => navigation.navigate("SignIn")}
-      >
-        <Image
-          style={styles.frameChild}
-          contentFit="cover"
-          source={require("../assets/arrow-2.png")}
-        />
-        <Text style={[styles.comear, styles.comearPosition]}>COMEÇAR</Text>
-      </TouchableOpacity>
+      <View style={styles.contentContainer}>
+        <View style={styles.overlay}>
+          <Image
+            style={styles.logoImage}
+            resizeMode="contain"
+            source={require("../assets/academia-world-gym-1-1.png")}
+          />
+        </View>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          activeOpacity={0.2}
+          onPress={() => navigation.navigate("SignIn")}
+        >
+          <Text style={styles.buttonText}>COMEÇAR</Text>
+          <Image
+            style={styles.buttonIcon}
+            resizeMode="cover"
+            source={require("../assets/arrow-2.png")}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
+
 const styles = StyleSheet.create({
-  comearPosition: {
-    left: "50%",
-    top: "50%",
+  container: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: "100%",
+    height: "100%",
     position: "absolute",
   },
-  signInIcon: {
-    top: 0,
-    left: 0,
-    borderRadius: 31,
-    width: 375,
+  backgroundImage: {
+    width: "100%",
+    height: "100%",
     position: "absolute",
-    height: 812,
   },
-  academiaWorldGym11: {
-    marginTop: -189,
-    marginLeft: -188.5,
-    width: 378,
-    height: 378,
+  contentContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  frameChild: {
-    top: 22,
-    left: 236,
+  logoImage: {
+    width: windowWidth * 0.8,
+    height: windowWidth * 0.8,
+    alignSelf: "center",
+  },  
+  buttonContainer: {
+    marginTop: 550,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 283,
+    height: 66,
+    borderRadius: 11,
+    backgroundColor: "#c41230",
+  },
+  buttonIcon: {
+    marginLeft: 30,
+    marginRight: -30,
     width: 22,
     height: 22,
-    position: "absolute",
   },
-  comear: {
-    marginTop: -21,
-    marginLeft: -76.5,
+  buttonText: {
     fontSize: 28,
     fontWeight: "600",
     fontFamily: "Poppins_semibold",
     color: "#fff",
-    textAlign: "center",
-  },
-  vectorParent: {
-    top: 714,
-    left: 46,
-    borderRadius: 11,
-    backgroundColor: "#c41230",
-    width: 283,
-    height: 66,
-    position: "absolute",
-  },
-  start: {
-    flex: 1,
-    width: "100%",
-    height: 812,
   },
 });
 

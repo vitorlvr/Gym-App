@@ -1,10 +1,20 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
-import { Image } from "expo-image";
+import { StyleSheet, View, Text, Pressable, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useFonts } from 'expo-font';
 
 const SignIn = () => {
   const navigation = useNavigation();
+  const [] = useFonts({
+    Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
+    Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
+    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
+    Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
+    Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
+    Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
+    Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+  });
 
   return (
     <View style={styles.signIn}>
@@ -23,12 +33,10 @@ const SignIn = () => {
       >
         <Text style={[styles.signUp1, styles.signUp1Typo]}>Sign Up</Text>
       </Pressable>
-      <Text
-        style={[styles.dontHaveAn, styles.dontHaveAnClr]}
-      >{`Don't have an account? `}</Text>
-      <Text style={[styles.signInWith, styles.singInFlexBox]}>
-        Sign in with
+      <Text style={[styles.dontHaveAn, styles.dontHaveAnClr]}>
+        {`Don't have an account? `}
       </Text>
+      <Text style={[styles.signInWith, styles.singInFlexBox]}>Sign in with</Text>
       <Text style={[styles.forgotPassword, styles.dontHaveAnClr]}>
         Esqueceu sua senha?
       </Text>
@@ -47,17 +55,17 @@ const SignIn = () => {
       <View style={styles.input2} />
       <Image
         style={styles.signInItem}
-        contentFit="cover"
+        resizeMode="cover"
         source={require("../assets/group-225.png")}
       />
       <Image
         style={styles.wgc2023PrimaryGlobeRed2}
-        contentFit="cover"
+        resizeMode="cover"
         source={require("../assets/wgc-2023-primary-globe-red-2.png")}
       />
       <Image
         style={styles.groupIcon}
-        contentFit="cover"
+        resizeMode="cover"
         source={require("../assets/group2.png")}
       />
     </View>
@@ -125,10 +133,10 @@ const styles = StyleSheet.create({
   signInChild: {
     borderRadius: 31,
     backgroundColor: "#e2e2e2",
-    width: 375,
+    width: "100%",
     left: 0,
     position: "absolute",
-    height: 812,
+    height: "100%",
   },
   groupChild: {
     borderRadius: 12,
@@ -139,10 +147,10 @@ const styles = StyleSheet.create({
     left: 0,
   },
   rectangleWrapper: {
-    left: 55,
+    left: "14.67%",
   },
   worldGym: {
-    top: 87,
+    top: "10.71%",
     fontSize: 32,
     fontFamily: "Jost_medium",
     color: "#040404",
@@ -156,11 +164,11 @@ const styles = StyleSheet.create({
     top: 0,
   },
   signInInner: {
-    top: 67,
-    left: 85,
+    top: "8.25%",
+    left: "28.67%",
   },
   signUp1: {
-    textDecoration: "underline",
+    textDecorationLine: "underline",
     color: "#000",
     lineHeight: 19,
     fontSize: 13,
@@ -180,10 +188,10 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   signInWith: {
-    top: 579,
-    left: 38,
+    top: "71.38%",
+    left: "10.13%",
     fontSize: 19,
-    width: 296,
+    width: "79.2%",
     lineHeight: 23,
     justifyContent: "center",
     alignItems: "center",
@@ -193,8 +201,8 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   forgotPassword: {
-    top: 488,
-    left: 125,
+    top: "60.39%",
+    left: "33.33%",
     fontSize: 12,
     fontFamily: "Poppins_medium",
     fontWeight: "500",
@@ -219,8 +227,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   startTraining: {
-    top: 439,
-    left: 151,
+    top: "52.89%",
+    left: "40.27%",
     fontSize: 16,
     fontWeight: "700",
     fontFamily: "Poppins_bold",
@@ -230,13 +238,13 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   input: {
-    top: "43.47%",
+    top: "38.04%",
     bottom: "50.86%",
     height: "5.67%",
     position: "absolute",
   },
   phoneEmail: {
-    top: "43.23%",
+    top: "37.8%",
     height: "5.67%",
     position: "absolute",
   },
@@ -260,31 +268,31 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   singIn: {
-    top: 255,
-    left: 50,
+    top: "28.97%",
+    left: "13.33%",
     fontSize: 20,
     lineHeight: 31,
     fontWeight: "600",
     fontFamily: "Poppins_semibold",
-    width: 274,
+    width: "73.6%",
   },
   input2: {
-    top: 382,
-    left: 33,
-    width: 344,
+    top: "47.06%",
+    left: "8.8%",
+    width: "91.2%",
     height: 53,
     position: "absolute",
   },
   signInItem: {
-    top: 29,
-    left: 30,
+    top: "3.57%",
+    left: "8%",
     width: 23,
     height: 15,
     position: "absolute",
   },
   wgc2023PrimaryGlobeRed2: {
-    top: 62,
-    left: 143,
+    top: "7.6%",
+    left: "28.8%",
     width: 83,
     height: 96,
     position: "absolute",
@@ -304,7 +312,7 @@ const styles = StyleSheet.create({
   signIn: {
     flex: 1,
     width: "100%",
-    height: 812,
+    height: "100%",
   },
 });
 

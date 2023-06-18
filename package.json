@@ -19,7 +19,8 @@
     "react-native": "0.71.11",
     "react-native-safe-area-context": "^3.4.1",
     "react-native-web": "~0.17.1",
-    "react-navigation": "^4.4.4"
+    "react-navigation": "^4.4.4",
+    "expo-font": "~10.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

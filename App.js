@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importe a tela Start
 import Start from './screens/Start';
+import SignIn from './screens/SignIn';
 
 // Crie um stack navigator
 const Stack = createNativeStackNavigator();
@@ -15,6 +16,11 @@ const App = () => {
         <Stack.Screen
           name="Start"
           component={Start}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
           options={{ headerShown: false }}
         />
         {/* Adicione outras telas aqui */}
