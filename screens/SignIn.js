@@ -21,14 +21,14 @@ const SignIn = () => {
             <View style={styles.signInChild} />
             <View style={styles.signUpParent}>
                 <TouchableOpacity style={styles.signUp} onPress={() => { }}>
-                    <Text style={styles.signUp1}>Sign Up</Text>
+                    <Text style={styles.signUp1}>Cadastre-se</Text>
                 </TouchableOpacity>
                 <Text
                     style={[styles.dontHaveAn, styles.dontHaveAnClr]}
-                >Don't have an account?</Text>
+                >Não possui uma conta?</Text>
             </View>
             <Text style={[styles.signInWith, styles.singInFlexBox]}>
-                Sign in with
+                Entrar com
             </Text>
                 <Text style={[styles.forgotPassword, styles.dontHaveAnClr]}>
                     Esqueceu sua senha?
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
         fontSize: 13,
         fontFamily: "Poppins_medium",
         fontWeight: "500",
+        width: 85,
     },
     signUp: {
         left: "74.63%",
