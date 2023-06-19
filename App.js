@@ -25,6 +25,16 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Train"
+          component={Train}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Goalwin"
+          component={Goalwin}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="SignUp"
           component={SignUp}
           options={{ headerShown: false }}
@@ -70,18 +80,8 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Train"
-          component={Train}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
           name="Goals"
           component={Goals}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Goalwin"
-          component={Goalwin}
           options={{ headerShown: false }}
         />
         <Stack.Screen

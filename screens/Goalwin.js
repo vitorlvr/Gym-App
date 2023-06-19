@@ -1,19 +1,12 @@
 import * as React from "react";
-import { Pressable, StyleSheet, View, Text, Image } from "react-native";
+import { TouchableOpacity, StyleSheet, View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
 const Goalwin = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
       Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
   });
   return (
     <View style={styles.goalwin}>
@@ -27,10 +20,9 @@ const Goalwin = () => {
         contentFit="cover"
         source={require("../assets/black-wg-logo-2.png")}
       />
-      <Pressable style={[styles.goalwinInner, styles.groupChildLayout]}>
-        <View style={[styles.groupChild, styles.groupChildLayout]} />
-      </Pressable>
-      <Text style={[styles.home, styles.homePosition]}>Home</Text>
+      <TouchableOpacity style={[styles.goalwinInner, styles.groupChildLayout]}>
+        <Text style={[styles.home]}>Home</Text>
+      </TouchableOpacity>
       <Image
         style={[styles.goalwinItem, styles.homePosition]}
         contentFit="cover"
@@ -58,35 +50,33 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   blackWgLogo2Icon: {
-    marginTop: -414,
-    marginLeft: -76.5,
     width: 153,
     height: 31,
-    top: "50%",
-    left: "50%",
-  },
-  groupChild: {
-    top: 0,
-    left: 0,
-    borderRadius: 12,
-    backgroundColor: "#c41230",
+    left: -19,
+    top: 30,
+    position: "absolute",
+    marginLeft: -77,
   },
   goalwinInner: {
     top: 731,
-    left: 41,
-  },
+    left: "50%",
+    marginLeft: -166,
+    height: 47,
+    borderRadius: 12,
+    backgroundColor: "#c41230",
+  },  
   home: {
-    marginTop: 288,
-    marginLeft: -23.5,
     fontSize: 16,
     lineHeight: 24,
     fontWeight: "700",
-    fontFamily: "Roboto_bold",
+    fontFamily: "Poppins_semibold",
     color: "#fff",
     textAlign: "center",
+    position: "absolute",
     top: "50%",
     left: "50%",
-  },
+    transform: [{ translateX: -23.5 }, { translateY: -12 }],
+  },  
   goalwinItem: {
     marginLeft: -198.5,
     top: 92,
@@ -100,6 +90,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 910,
     overflow: "hidden",
+    justifyContent: "center",
   },
 });
 
