@@ -25,6 +25,11 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="ChooseTrain"
+          component={ChooseTrain}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Schedule"
           component={Schedule}
           options={{ headerShown: false }}
@@ -52,11 +57,6 @@ const App = () => {
         <Stack.Screen
           name="Gender"
           component={Gender}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ChooseTrain"
-          component={ChooseTrain}
           options={{ headerShown: false }}
         />
         <Stack.Screen

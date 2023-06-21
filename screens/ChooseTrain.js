@@ -1,10 +1,16 @@
-import * as React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
 const ChooseTrain = () => {
   const navigation = useNavigation();
+  const [selectedBox, setSelectedBox] = useState(null);
+
+  const handleBoxPress = (boxId) => {
+    setSelectedBox(boxId);
+  };
+
   const [] = useFonts({
       Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
       Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
@@ -15,6 +21,16 @@ const ChooseTrain = () => {
       Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
       Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
   });
+
+  const getBoxStyle = (boxId) => {
+    // Função para retornar o estilo da caixa com base na seleção
+    if (selectedBox === boxId) {
+      return styles.selectedBox;
+    } else {
+      return styles.chooseShadowBox;
+    }
+  };
+
   return (
     <View style={styles.chooseTrain}>
       <View style={styles.buttonWrapper}>
@@ -28,64 +44,57 @@ const ChooseTrain = () => {
       >
         Escolha seu treino
       </Text>
-      <Image
-        style={styles.chooseTrainChild}
-        contentFit="cover"
-        source={require("../assets/arrow-4.png")}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Schedule")}>
+        <Image
+          style={styles.chooseTrainChild}
+          contentFit="cover"
+          source={require("../assets/arrow-4.png")}
+        />
+      </TouchableOpacity>
       <Image
         style={styles.blackWgLogo2Icon}
         contentFit="cover"
         source={require("../assets/black-wg-logo-2.png")}
       />
-      <View style={[styles.chooseTrainInner, styles.chooseInnerPosition]}>
-        <View style={styles.chooseShadowBox}>
-          <Text style={styles.chooseActivitiesTh1}>A</Text>
-          <Text
-            style={[
-              styles.costasBicepsQuadriceps,
-              styles.pernasGlteosOmbroTypo,
-            ]}
-          >
-            Costas, Biceps, Quadriceps
-          </Text>
-        </View>
+      <View style={[getBoxStyle(1), styles.chooseTrainInner, styles.chooseInnerPosition]}>
+        <TouchableOpacity onPress={() => handleBoxPress(1)}>
+          <View style={styles.chooseInnerContent}>
+            <Text style={styles.chooseActivitiesTh1}>A</Text>
+            <Text style={[styles.costasBicepsQuadriceps, styles.pernasGlteosOmbroTypo]}>
+              Costas, Bíceps, Antebraço
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
-      <View style={[styles.groupView, styles.chooseInnerPosition]}>
-        <View style={styles.chooseShadowBox}>
-          <Text style={styles.chooseActivitiesTh1}>B</Text>
-          <Text
-            style={[
-              styles.costasBicepsQuadriceps,
-              styles.pernasGlteosOmbroTypo,
-            ]}
-          >
-            Peito, Tríceps, Panturrilha
-          </Text>
-        </View>
+      <View style={[getBoxStyle(2), styles.groupView, styles.chooseInnerPosition]}>
+        <TouchableOpacity onPress={() => handleBoxPress(2)}>
+          <View style={styles.chooseInnerContent}>
+            <Text style={styles.chooseActivitiesTh1}>B</Text>
+            <Text style={[styles.costasBicepsQuadriceps, styles.pernasGlteosOmbroTypo]}>
+              Peito, Tríceps, Ombro
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
-      <View style={[styles.chooseTrainInner1, styles.chooseInnerPosition]}>
-        <View style={styles.chooseShadowBox}>
-          <Text style={styles.chooseActivitiesTh1}>C</Text>
-          <Text
-            style={[
-              styles.costasBicepsQuadriceps,
-              styles.pernasGlteosOmbroTypo,
-            ]}
-          >
-            Abdômen, Posterior, Ombro
-          </Text>
-        </View>
+      <View style={[getBoxStyle(3), styles.chooseTrainInner1, styles.chooseInnerPosition]}>
+        <TouchableOpacity onPress={() => handleBoxPress(3)}>
+          <View style={styles.chooseInnerContent}>
+            <Text style={styles.chooseActivitiesTh1}>C</Text>
+            <Text style={[styles.costasBicepsQuadriceps, styles.pernasGlteosOmbroTypo]}>
+              Quadríceps, Posterior, Panturilha
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
-      <View style={[styles.chooseTrainInner2, styles.frameViewLayout]}>
-        <View style={[styles.frameView, styles.frameViewLayout]}>
-          <Text style={styles.chooseActivitiesTh1}>D</Text>
-          <Text
-            style={[styles.pernasGlteosOmbro, styles.pernasGlteosOmbroTypo]}
-          >
-            Pernas, Glúteos, Ombro
-          </Text>
-        </View>
+      <View style={[getBoxStyle(4), styles.chooseTrainInner2, styles.frameViewLayout]}>
+        <TouchableOpacity onPress={() => handleBoxPress(4)}>
+          <View style={styles.chooseInnerContent}>
+            <Text style={styles.chooseActivitiesTh1}>D</Text>
+            <Text style={[styles.pernasGlteosOmbro, styles.pernasGlteosOmbroTypo]}>
+              Bíceps, Tríceps, Ombro
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -183,13 +192,13 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   blackWgLogo2Icon: {
-    marginTop: -414,
-    marginLeft: -76.5,
-    top: "50%",
     left: "50%",
+    position: "absolute",
     width: 153,
     height: 31,
+    top: 30,
     position: "absolute",
+    marginLeft: -77,
   },
   chooseActivitiesTh1: {
     fontSize: 32,
@@ -275,6 +284,39 @@ const styles = StyleSheet.create({
     height: 910,
     overflow: "hidden",
     width: "100%",
+  },
+  chooseInnerContent: {
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  selectedBox: {
+    borderWidth: 2,
+    borderColor: "#87cefa", // Cor da borda azul clara
+  },
+  chooseShadowBox: {
+    justifyContent: "space-between",
+    right: 0,
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    flexDirection: "row",
+    elevation: 4,
+    shadowRadius: 4,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    height: 87,
+    alignItems: "center",
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 0,
+      height: 5.773642539978027,
+    },
+    left: 0,
+    top: 0,
+    position: "absolute",
   },
 });
 
