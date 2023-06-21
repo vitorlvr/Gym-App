@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Pressable, Image } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import { Slider as RNESlider } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
@@ -7,33 +7,46 @@ import { useFonts } from 'expo-font';
 const Gender = () => {
   const [groupSliderValue, setGroupSliderValue] = useState(2);
   const navigation = useNavigation();
+  const [age, setAge] = useState(14);
+  const [selectedGender, setSelectedGender] = useState(null);
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
+    Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
+    Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
   });
+
+  const decreaseAge = (age) => {
+    if (age > 0) {
+      return age - 1;
+    }
+    return age;
+  };
+
+  const increaseAge = (age) => {
+    if (age < 100) {
+      return age + 1;
+    }
+    return age;
+  };
 
   return (
     <View style={styles.gender}>
-      <Pressable
+      <TouchableOpacity
         style={[styles.button, styles.buttonPosition]}
         onPress={() => navigation.navigate("Schedule")}
       >
         <View style={[styles.bg, styles.bgShadowBox]} />
         <Text style={styles.startTraining}>Continue</Text>
-      </Pressable>
-      <Pressable style={[styles.gender1, styles.genderPosition1]}>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.gender1, styles.genderPosition1, selectedGender === 'female' && styles.selectedGender]}
+      onPress={() => setSelectedGender('female')}>
         <View style={[styles.bg1, styles.bg1Position]} />
         <Text style={[styles.title, styles.titleTypo]}>Feminino</Text>
         <View style={[styles.rectangleParent, styles.groupChildLayout]}>
           <View style={[styles.groupChild, styles.groupChildLayout]} />
           <Image
-            style={[styles.groupItem, styles.buttonPosition]}
+            style={[styles.groupItem]}
             contentFit="cover"
             source={require("../assets/group-220.png")}
           />
@@ -43,21 +56,25 @@ const Gender = () => {
           contentFit="cover"
           source={require("../assets/group-223.png")}
         />
-      </Pressable>
+      </TouchableOpacity>
       <View style={[styles.gender2, styles.genderPosition]}>
         <View style={styles.bgPosition}>
           <View style={[styles.bg1, styles.bg1Position]} />
-          <Text style={[styles.chooseGender, styles.chooseTypo1]}>{`19 `}</Text>
-          <Image
-            style={[styles.groupInner, styles.groupInnerPosition]}
-            contentFit="cover"
-            source={require("../assets/polygon-2.png")}
-          />
-          <Image
-            style={[styles.polygonIcon, styles.groupInnerPosition]}
-            contentFit="cover"
-            source={require("../assets/polygon-3.png")}
-          />
+          <Text style={[styles.chooseGender, styles.chooseTypo1]}>{age}</Text>
+          <TouchableOpacity onPress={() => setAge(increaseAge(age))}>
+            <Image
+              style={[styles.groupInner, styles.groupInnerPosition]}
+              contentFit="cover"
+              source={require("../assets/polygon-2.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setAge(decreaseAge(age))}>
+            <Image
+              style={[styles.polygonIcon, styles.groupInnerPosition]}
+              contentFit="cover"
+              source={require("../assets/polygon-3.png")}
+            />
+          </TouchableOpacity>
           <Image
             style={[styles.groupIcon, styles.iconLayout]}
             contentFit="cover"
@@ -75,18 +92,19 @@ const Gender = () => {
           value={groupSliderValue}
           onValueChange={setGroupSliderValue}
           thumbStyle={styles.groupSliderts}
-          thumbTintColor="#ff0000"
-          minimumTrackTintColor="#3f3f3f"
+          thumbTintColor="#c41230"
+          minimumTrackTintColor="#c41230"
           maximumTrackTintColor="#b3b3b3"
         />
-        <Text style={[styles.chooseGender1, styles.chooseTypo1]}>64</Text>
+        <Text style={[styles.chooseGender1, styles.chooseTypo1]}>{groupSliderValue}</Text>
         <Image
           style={[styles.vectorIcon, styles.iconLayout]}
           contentFit="cover"
           source={require("../assets/vector.png")}
         />
       </View>
-      <Pressable style={[styles.genderActive, styles.genderPosition1]}>
+      <TouchableOpacity style={[styles.genderActive, styles.genderPosition1, selectedGender === 'male' && styles.selectedGender]}
+      onPress={() => setSelectedGender('male')}>
         <View style={[styles.bg4, styles.bg1Position]} />
         <Text style={[styles.title1, styles.titleTypo]}>Masculino</Text>
         <Image
@@ -94,7 +112,7 @@ const Gender = () => {
           contentFit="cover"
           source={require("../assets/group-221.png")}
         />
-      </Pressable>
+      </TouchableOpacity>
       <Text style={[styles.chooseGender2, styles.chooseTypo]}>
         Selecione seu sexo
       </Text>
@@ -102,11 +120,13 @@ const Gender = () => {
         Selecione sua idade
       </Text>
       <Text style={styles.chooseGender4}>Selecione seu peso</Text>
-      <Image
-        style={styles.genderInner}
-        contentFit="cover"
-        source={require("../assets/arrow-4.png")}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Final")}>
+        <Image
+          style={styles.genderInner}
+          contentFit="cover"
+          source={require("../assets/arrow-4.png")}
+        />
+      </TouchableOpacity>
       <Image
         style={styles.blackWgLogo1Icon}
         contentFit="cover"
@@ -122,9 +142,15 @@ const styles = StyleSheet.create({
     width: 25,
   },
   buttonPosition: {
-    left: 15,
+    top: 731,
+    left: "50%",
     position: "absolute",
   },
+  selectedGender: {
+    borderRadius: 15,
+    backgroundColor: "#e1e1e1",
+    borderWidth: 2,
+  },  
   bgShadowBox: {
     shadowOpacity: 1,
     shadowOffset: {
@@ -135,7 +161,8 @@ const styles = StyleSheet.create({
   },
   genderPosition1: {
     height: 85,
-    left: 15,
+    left: "50%",
+    marginLeft: -173,
     position: "absolute",
   },
   bg1Position: {
@@ -156,12 +183,11 @@ const styles = StyleSheet.create({
     display: "flex",
     textAlign: "left",
     color: "#0a0615",
-    fontSize: 15,
-    left: 85,
+    fontSize: 20,
+    left: "50%",
+    marginLeft: -70,
     top: "50%",
     fontFamily: "Poppins_medium",
-    fontWeight: "500",
-    lineHeight: 19,
     position: "absolute",
   },
   groupChildLayout: {
@@ -170,7 +196,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   genderPosition: {
-    left: 17,
+    left: "50%",
+    marginLeft: -172,
     width: 344,
     borderRadius: 100,
     position: "absolute",
@@ -181,7 +208,8 @@ const styles = StyleSheet.create({
     color: "#0a0615",
     textAlign: "center",
     fontFamily: "Poppins_medium",
-    fontWeight: "500",
+    left: "50%",
+    marginLeft: -16,
     position: "absolute",
   },
   groupInnerPosition: {
@@ -199,12 +227,10 @@ const styles = StyleSheet.create({
     height: 38,
     width: 313,
     justifyContent: "center",
-    left: 31,
+    left: "50%",
+    marginLeft: -156,
     fontFamily: "Poppins_semibold",
-    fontWeight: "600",
     fontSize: 20,
-    lineHeight: 31,
-    alignItems: "center",
     display: "flex",
     color: "#0a0615",
     textAlign: "center",
@@ -224,20 +250,26 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   startTraining: {
-    top: 16,
-    left: 134,
-    fontSize: 16,
+    top: 10,
+    left: 76,
+    fontSize: 20,
     color: "#fff",
+    width: 179,
+    height: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    display: "flex",
     textAlign: "center",
-    fontFamily: "Poppins_medium",
-    fontWeight: "500",
-    lineHeight: 19,
     position: "absolute",
   },
   button: {
-    top: 718,
-    height: 53,
-    width: 345,
+    height: 47,
+    width: 332,
+    position: "absolute",
+    marginLeft: -166,
+    height: 47,
+    borderRadius: 12,
+    backgroundColor: "#c41230",
   },
   bg1: {
     borderColor: "#e5e9ef",
@@ -265,6 +297,7 @@ const styles = StyleSheet.create({
     top: 12,
     width: 18,
     height: 18,
+    marginLeft: 14,
   },
   rectangleParent: {
     top: 19,
@@ -280,22 +313,33 @@ const styles = StyleSheet.create({
   gender1: {
     top: 262,
     width: 344,
-    borderRadius: 100,
+    borderRadius: 12,
     height: 85,
+    flexDirection: "row",
+    elevation: 4,
+    shadowRadius: 4,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    alignItems: "center",
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 0,
+      height: 5.773642539978027,
+    },
   },
   chooseGender: {
     top: 21,
-    left: 156,
+    left: "50%",
+    marginLeft: -160,
   },
   groupInner: {
-    top: 13,
+    top: 8,
     width: 25,
     height: 25,
   },
   polygonIcon: {
-    top: 36,
-    width: 19,
-    height: 17,
+    top: 40,
+    width: 25,
+    height: 25,
   },
   groupIcon: {
     height: "41.26%",
@@ -329,7 +373,6 @@ const styles = StyleSheet.create({
   },
   chooseGender1: {
     top: "18.26%",
-    left: "43.9%",
   },
   vectorIcon: {
     height: "30.43%",
@@ -344,10 +387,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#f54242",
     height: 115,
   },
-  bg4: {
-    borderColor: "#000",
-    borderWidth: 2,
-  },
   title1: {
     marginTop: -9.74,
     width: 138,
@@ -356,7 +395,7 @@ const styles = StyleSheet.create({
     top: 18,
     width: 60,
     height: 60,
-    left: 12,
+    left: 8,
     position: "absolute",
   },
   genderActive: {
@@ -364,6 +403,16 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     width: 345,
     overflow: "hidden",
+    flexDirection: "row",
+    elevation: 4,
+    shadowRadius: 4,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    alignItems: "center",
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 0,
+      height: 5.773642539978027,
+    },
   },
   chooseGender2: {
     top: 113,
@@ -373,29 +422,27 @@ const styles = StyleSheet.create({
   },
   chooseGender4: {
     top: 512,
-    left: 88,
+    left: "50%",
+    marginLeft: -97,
     fontFamily: "Poppins_semibold",
-    fontWeight: "600",
     fontSize: 20,
-    lineHeight: 31,
+    width: "100%",
     color: "#0a0615",
-    textAlign: "center",
     position: "absolute",
   },
   genderInner: {
-    top: 30,
-    left: 20,
+    top: 28,
+    left: 22,
     width: 24,
     height: 22,
     position: "absolute",
   },
   blackWgLogo1Icon: {
-    marginTop: -365,
-    marginLeft: -76.5,
-    left: "50%",
     width: 153,
     height: 31,
-    top: "50%",
+    left: "50%",
+    marginLeft: -76.5,
+    top: 30,
     position: "absolute",
   },
   gender: {

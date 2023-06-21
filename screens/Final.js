@@ -1,28 +1,26 @@
 import * as React from "react";
-import { StyleSheet, View, Pressable, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
 const Final = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
+    Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
+    Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
   });
   return (
     <View style={styles.final}>
       <View style={styles.bg} />
-      <Image
-        style={styles.finalChild}
-        contentFit="cover"
-        source={require("../assets/arrow-4.png")}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Cardpayment")}>
+        <Image
+          style={styles.finalChild}
+          contentFit="cover"
+          source={require("../assets/arrow-4.png")}
+        />
+      </TouchableOpacity>
       <Image
         style={styles.finalItem}
         contentFit="cover"
@@ -38,6 +36,10 @@ com sucesso.`}</Text>
           Obrigada por escolher a world gym
         </Text>
       </View>
+      <Text
+        style={[styles.customerCare, styles.customerCareTypo, styles.customerCareFlexBox]}
+      >{`Customer care : 1500 7373 4666 
+(8.00AM-10.00PM)`}</Text>
       <View style={[styles.rectangleParent, styles.groupChildLayout]}>
         <View style={[styles.groupChild, styles.bg1ShadowBox]} />
         <Text
@@ -48,23 +50,12 @@ Para qualquer dúvida, sinta-se à vontade para entrar em contato com nosso aten
 `}</Text>
       </View>
       <View style={[styles.button, styles.bg1ShadowBox]}>
-        <Pressable style={styles.bg1Position}>
+        <TouchableOpacity style={styles.bg1Position} onPress={() => navigation.navigate("Gender")} >
           <View style={[styles.bg1, styles.bg1Position]} />
           <Text style={[styles.startTraining, styles.startTrainingFlexBox]}>
             Vamos Começar
           </Text>
-        </Pressable>
-      </View>
-      <View style={styles.vectorParent}>
-        <Image
-          style={styles.vectorIcon}
-          contentFit="cover"
-          source={require("../assets/vector1.png")}
-        />
-        <Text
-          style={[styles.customerCare, styles.customerCareTypo]}
-        >{`Customer care : 1500 7373 4666 
-(8.00AM-10.00PM)`}</Text>
+        </TouchableOpacity>
       </View>
       <Image
         style={styles.blackWgLogo2Icon}
@@ -83,6 +74,8 @@ const styles = StyleSheet.create({
   groupChildLayout: {
     height: 163,
     width: 326,
+    left: "50%",
+    marginLeft: -163,
   },
   bg1ShadowBox: {
     shadowOpacity: 1,
@@ -91,12 +84,16 @@ const styles = StyleSheet.create({
       height: 5,
     },
   },
+  customerCareFlexBox: {
+    top: 670,
+    left: "50%",
+    marginLeft: -157,
+  },
   customerCareTypo: {
     textAlign: "left",
     fontSize: 12,
     color: "rgba(0, 0, 0, 0.64)",
     fontFamily: "Poppins_medium",
-    fontWeight: "500",
     position: "absolute",
   },
   bg1Position: {
@@ -111,27 +108,26 @@ const styles = StyleSheet.create({
   bg: {
     top: -25,
     left: 2,
-    backgroundColor: "rgba(255, 255, 255, 0.3)",
     width: 375,
     height: 847,
     position: "absolute",
   },
   finalChild: {
-    top: 28,
-    left: 22,
+    top: 30,
+    left: 19,
     width: 24,
     height: 22,
     position: "absolute",
   },
   finalItem: {
     top: 137,
-    left: 110,
+    left: "50%",
+    marginLeft: -78,
     width: 156,
     height: 156,
     position: "absolute",
   },
   wohooPagamentoFeito: {
-    left: 39,
     fontSize: 24,
     color: "#000",
     fontFamily: "Poppins_medium",
@@ -144,14 +140,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "rgba(0, 0, 0, 0.64)",
     left: 0,
+    marginLeft: -41,
     textAlign: "center",
     fontFamily: "Poppins_medium",
-    fontWeight: "500",
     position: "absolute",
   },
   wohooPagamentoFeitoComSParent: {
     top: 321,
-    left: 45,
+    left: "50%",
+    marginLeft: -102,
     width: 287,
     height: 143,
     position: "absolute",
@@ -180,7 +177,8 @@ const styles = StyleSheet.create({
   },
   rectangleParent: {
     top: 489,
-    left: 27,
+    left: "50%",
+    marginLeft: -163,
     position: "absolute",
   },
   bg1: {
@@ -201,16 +199,17 @@ const styles = StyleSheet.create({
   },
   startTraining: {
     top: 16,
-    left: 86,
+    left: "50%",
+    marginLeft: -87,
     fontSize: 20,
     lineHeight: 19,
-    fontWeight: "600",
     fontFamily: "Poppins_semibold",
     color: "#fff",
   },
   button: {
     top: 728,
-    left: 17,
+    left: "50%",
+    marginLeft: -173,
     width: 345,
     height: 53,
     elevation: 4,
@@ -224,16 +223,11 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   vectorIcon: {
-    height: "30.56%",
-    width: "6.57%",
-    top: "8.33%",
-    right: "93.9%",
-    bottom: "61.11%",
-    left: "-0.47%",
-    maxWidth: "100%",
-    maxHeight: "100%",
+    top: 30,
+    left: 19,
+    width: 24,
+    height: 22,
     position: "absolute",
-    overflow: "hidden",
   },
   customerCare: {
     left: 18,
@@ -241,21 +235,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   vectorParent: {
-    height: "4.43%",
-    width: "56.8%",
-    top: "82.76%",
-    right: "34.4%",
-    bottom: "12.81%",
-    left: "8.8%",
+    top: 28,
+    left: 22,
+    width: 24,
+    height: 22,
     position: "absolute",
   },
   blackWgLogo2Icon: {
-    marginTop: -367,
-    marginLeft: -76.5,
-    top: "50%",
-    left: "50%",
     width: 153,
     height: 31,
+    left: "50%",
+    marginLeft: -76.5,
+    top: 30,
     position: "absolute",
   },
   final: {

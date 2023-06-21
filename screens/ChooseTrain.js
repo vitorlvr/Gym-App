@@ -12,14 +12,9 @@ const ChooseTrain = () => {
   };
 
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+    Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
+    Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
   });
 
   const getBoxStyle = (boxId) => {
@@ -34,14 +29,12 @@ const ChooseTrain = () => {
   return (
     <View style={styles.chooseTrain}>
       <View style={styles.buttonWrapper}>
-        <View style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Train")}>
           <View style={styles.bg} />
           <Text style={styles.startTraining}>Continue</Text>
-        </View>
+        </TouchableOpacity>
       </View>
-      <Text
-        style={[styles.chooseActivitiesTh, styles.chooseActivitiesThFlexBox]}
-      >
+      <Text style={[styles.chooseActivitiesTh, styles.chooseActivitiesThFlexBox]}>
         Escolha seu treino
       </Text>
       <TouchableOpacity onPress={() => navigation.navigate("Schedule")}>
@@ -108,7 +101,8 @@ const styles = StyleSheet.create({
   chooseInnerPosition: {
     height: 87,
     right: 27,
-    left: 28,
+    left: "50%",
+    marginLeft: -182,
     position: "absolute",
   },
   pernasGlteosOmbroTypo: {
@@ -124,14 +118,12 @@ const styles = StyleSheet.create({
   frameViewLayout: {
     width: 364,
     height: 87,
+    left: "50%",
+    marginLeft: -182,
     position: "absolute",
   },
   bg: {
     height: "100%",
-    top: "0%",
-    right: "0%",
-    bottom: "0%",
-    left: "0%",
     borderRadius: 4,
     backgroundColor: "#c41230",
     shadowColor: "rgba(128, 128, 128, 0.2)",
@@ -165,23 +157,31 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     top: 733,
-    left: 41,
+    left: "50%",
+    marginLeft: -172.5,
     height: 53,
     width: 345,
     position: "absolute",
+    flexDirection: "row",
+    elevation: 4,
+    shadowRadius: 4,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    alignItems: "center",
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 0,
+      height: 5.773642539978027,
+    },
   },
   chooseActivitiesTh: {
     top: 123,
-    left: 65,
+    left: "50%",
+    marginLeft: -144.5,
     fontSize: 26,
-    fontWeight: "600",
     fontFamily: "Poppins_semibold",
     width: 289,
-    alignItems: "center",
     display: "flex",
     color: "#0a0615",
-    lineHeight: 31,
-    justifyContent: "center",
     position: "absolute",
   },
   chooseTrainChild: {
@@ -192,13 +192,13 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   blackWgLogo2Icon: {
-    left: "50%",
     position: "absolute",
     width: 153,
     height: 31,
     top: 30,
     position: "absolute",
     marginLeft: -77,
+    left: "50%",
   },
   chooseActivitiesTh1: {
     fontSize: 32,
@@ -241,12 +241,18 @@ const styles = StyleSheet.create({
   },
   chooseTrainInner: {
     top: 205,
+    width: 364,
+    left: 28,
   },
   groupView: {
     top: 312,
+    width: 364,
+    left: 28,
   },
   chooseTrainInner1: {
     top: 419,
+    width: 364,
+    left: 28,
   },
   pernasGlteosOmbro: {
     textAlign: "left",
@@ -269,8 +275,6 @@ const styles = StyleSheet.create({
       width: 0,
       height: 5.773642539978027,
     },
-    left: 0,
-    top: 0,
   },
   chooseTrainInner2: {
     top: 526,
@@ -278,7 +282,7 @@ const styles = StyleSheet.create({
     left: 28,
   },
   chooseTrain: {
-    borderRadius: 23,
+    borderRadius: 8,
     backgroundColor: "#e1e1e1",
     flex: 1,
     height: 910,
@@ -294,7 +298,8 @@ const styles = StyleSheet.create({
   },
   selectedBox: {
     borderWidth: 2,
-    borderColor: "#87cefa", // Cor da borda azul clara
+    borderColor: "#000",
+    borderRadius: 8,
   },
   chooseShadowBox: {
     justifyContent: "space-between",
@@ -303,7 +308,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     flexDirection: "row",
     elevation: 4,
-    shadowRadius: 4,
+    shadowRadius: 8,
     shadowColor: "rgba(0, 0, 0, 0.25)",
     backgroundColor: "#fff",
     borderRadius: 8,

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Pressable, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
     top: 10,
     left: 76,
     fontSize: 20,
-    lineHeight: 19,
     color: "#fff",
     width: 179,
     height: 20,
@@ -95,7 +94,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     textAlign: "center",
-    fontWeight: "600",
     position: "absolute",
   },
   button: {

@@ -16,7 +16,7 @@ const Treino = () => {
       <Text style={[styles.tituloTreino, styles.centralizado]}>
         Treino A
       </Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("ChooseTrain")}>
         <Image
           style={styles.setaImagem}
           resizeMode="cover"
