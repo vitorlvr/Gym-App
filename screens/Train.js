@@ -1,173 +1,163 @@
 import * as React from "react";
-import { Text, StyleSheet, Pressable, ScrollView, View, Image } from "react-native";
+import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
-const Train = () => {
+const Treino = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
+    Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
+    Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
   });
   return (
-    <View style={styles.train}>
-      <Text style={[styles.chooseActivitiesTh, styles.detailFlexBox]}>
+    <View style={styles.treino}>
+      <Text style={[styles.tituloTreino, styles.centralizado]}>
         Treino A
       </Text>
+      <TouchableOpacity>
+        <Image
+          style={styles.setaImagem}
+          resizeMode="cover"
+          source={require("../assets/arrow-4.png")}
+        />
+      </TouchableOpacity>
       <Image
-        style={styles.trainChild}
-        contentFit="cover"
-        source={require("../assets/arrow-4.png")}
-      />
-      <Image
-        style={[styles.blackWgLogo2Icon, styles.pngPosition]}
-        contentFit="cover"
+        style={[styles.logoImagem, styles.posicaoLogo]}
+        resizeMode="cover"
         source={require("../assets/black-wg-logo-2.png")}
       />
-      <ScrollView
-        style={styles.imageParent}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        pagingEnabled={false}
-      >
-        <Image
-          style={[styles.imageIcon, styles.detailPosition]}
-          contentFit="cover"
-          source={require("../assets/image.png")}
-        />
-        <View style={[styles.detail, styles.detailPosition]}>
-          <Text style={[styles.title, styles.setsClr]}>Puxada aberta</Text>
-          <View style={[styles.info, styles.infoFlexBox]}>
-            <View style={styles.infoFlexBox}>
-              <Image
-                style={styles.icons}
-                contentFit="cover"
-                source={require("../assets/icons6.png")}
-              />
-              <Text style={[styles.sets, styles.setsClr]}>3 Sets</Text>
-            </View>
-            <View style={[styles.repeat, styles.infoFlexBox]}>
-              <Image
-                style={styles.icons}
-                contentFit="cover"
-                source={require("../assets/icons7.png")}
-              />
-              <Text style={[styles.sets, styles.setsClr]}>12 rep</Text>
-            </View>
-          </View>
-          <Pressable style={styles.buttonSolidWrapper}>
-            <View style={[styles.buttonSolid, styles.infoFlexBox]}>
-              <Text style={[styles.boto, styles.botoTypo]}>Iniciar</Text>
-            </View>
-          </Pressable>
-        </View>
-      </ScrollView>
       <Image
-        style={[styles.iconoPausaBlancoPngPngDow, styles.pngPosition]}
-        contentFit="cover"
-        source={require("../assets/1171177502-iconopausablancopngpngdownloaddownstealremovebgpreview-1.png")}
+        style={[styles.imagemTreino, styles.posicaoDetalhes]}
+        resizeMode="cover"
+        source={require("../assets/image.png")}
+      />
+      <View style={[styles.detalhes, styles.posicaoDetalhes]}>
+        <Text style={[styles.tituloExercicio, styles.corTexto]}>Puxada aberta</Text>
+        <View style={[styles.informacoes, styles.flexBox]}>
+          <View style={styles.flexBox}>
+            <Image
+              style={styles.icone}
+              resizeMode="cover"
+              source={require("../assets/icons6.png")}
+            />
+            <Text style={[styles.series, styles.corTexto]}>3 Sets</Text>
+          </View>
+          <View style={[styles.repeticoes, styles.flexBox]}>
+            <Image
+              style={styles.icone}
+              resizeMode="cover"
+              source={require("../assets/icons7.png")}
+            />
+            <Text style={[styles.series, styles.corTexto]}>12 rep</Text>
+          </View>
+        </View>
+        <TouchableOpacity style={styles.wrapperBotao}>
+          <View style={[styles.botao, styles.flexBox]}>
+            <Text style={[styles.textoBotao, styles.textoNegrito]}>Iniciar</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+      <Image
+        style={[styles.iconePausa, styles.posicaoLogo]}
+        resizeMode="cover"
+        source={require("../assets/pauseicon.png")}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  detailFlexBox: {
+  centralizado: {
     alignItems: "center",
     justifyContent: "center",
   },
-  pngPosition: {
+  posicaoLogo: {
     left: "50%",
     position: "absolute",
   },
-  detailPosition: {
+  posicaoDetalhes: {
     borderRadius: 8,
     marginLeft: -182,
     width: 364,
     left: "50%",
     position: "absolute",
   },
-  setsClr: {
+  corTexto: {
     color: "#000",
     textAlign: "center",
   },
-  infoFlexBox: {
+  flexBox: {
     flexDirection: "row",
     alignItems: "center",
   },
-  botoTypo: {
-    fontFamily: "Roboto_bold",
+  textoNegrito: {
+    fontFamily: "Poppins_bold",
     fontWeight: "700",
   },
-  chooseActivitiesTh: {
+  tituloTreino: {
     top: 123,
-    left: 65,
+    left: "50%",
     fontSize: 26,
-    lineHeight: 31,
-    fontWeight: "600",
     fontFamily: "Poppins_semibold",
     color: "#0a0615",
-    display: "flex",
     width: 289,
-    justifyContent: "center",
-    textAlign: "center",
     position: "absolute",
+    marginLeft: -55,
   },
-  trainChild: {
+  setaImagem: {
     top: 30,
     left: 19,
-    height: 22,
     width: 24,
+    height: 22,
     position: "absolute",
+    overflow: "hidden",
+    justifyContent: "center",
   },
-  blackWgLogo2Icon: {
-    marginTop: -414,
-    marginLeft: -76.5,
+  logoImagem: {
     width: 153,
     height: 31,
-    top: "50%",
+    left: -19,
+    top: 30,
+    position: "absolute",
+    marginLeft: -77,
   },
-  imageIcon: {
+  imagemTreino: {
     height: 364,
-    top: 0,
+    top: 190,
   },
-  title: {
-    fontSize: 20,
+  tituloExercicio: {
+    fontSize: 22,
     lineHeight: 32,
     width: 212,
-    fontFamily: "Roboto_bold",
-    fontWeight: "700",
+    fontFamily: "poppins_bold",
   },
-  icons: {
+  icone: {
     height: 24,
     width: 24,
   },
-  sets: {
+  series: {
     fontSize: 18,
-    lineHeight: 29,
-    fontFamily: "Roboto_regular",
+    fontFamily: "poppins_semibold",
     marginLeft: 8,
   },
-  repeat: {
+  repeticoes: {
+    fontSize: 18,
+    fontFamily: "poppins_semibold",
     marginLeft: 40,
   },
-  info: {
+  informacoes: {
     marginTop: 24,
     justifyContent: "center",
   },
-  boto: {
+  textoBotao: {
     fontSize: 16,
     lineHeight: 24,
     color: "#fff",
     textAlign: "center",
   },
-  buttonSolid: {
+  botao: {
     left: 0,
     borderRadius: 6,
     backgroundColor: "#c41230",
@@ -178,46 +168,28 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "absolute",
   },
-  buttonSolidWrapper: {
+  wrapperBotao: {
     alignSelf: "stretch",
     height: 56,
     marginTop: 24,
   },
-  detail: {
-    marginTop: 99,
+  detalhes: {
     height: 190,
     paddingHorizontal: 16,
     paddingTop: 20,
     paddingBottom: 16,
     backgroundColor: "#fff",
-    top: "50%",
+    top: 565,
     justifyContent: "center",
     alignItems: "center",
   },
-  imageParent: {
-    marginLeft: -181.5,
-    top: 205,
-    shadowColor: "rgba(0, 0, 0, 0.25)",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowRadius: 4,
-    elevation: 4,
-    shadowOpacity: 1,
-    maxWidth: 364,
-    width: 364,
-    left: "50%",
-    position: "absolute",
-    flex: 1,
-  },
-  iconoPausaBlancoPngPngDow: {
+  iconePausa: {
     marginLeft: -47.5,
     top: 342,
     width: 96,
     height: 90,
   },
-  train: {
+  treino: {
     borderRadius: 23,
     backgroundColor: "#e1e1e1",
     height: 910,
@@ -225,6 +197,25 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
   },
+  botaoHome: {
+    borderRadius: 12,
+    backgroundColor: "#c41230",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  layoutBotaoHome: {
+    height: 47,
+    width: 332,
+    position: "absolute",
+  },
+  textoBotaoHome: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: "700",
+    fontFamily: "Poppins_semibold",
+    color: "#fff",
+    textAlign: "center",
+  },
 });
 
-export default Train;
+export default Treino;

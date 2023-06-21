@@ -25,33 +25,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Goalwin"
-          component={Goalwin}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SignUp"
-          component={SignUp}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SignIn"
-          component={SignIn}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Start"
-          component={Start}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Train"
-          component={Train}
+          name="Schedule"
+          component={Schedule}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -60,8 +35,8 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Schedule"
-          component={Schedule}
+          name="Train"
+          component={Train}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -87,6 +62,31 @@ const App = () => {
         <Stack.Screen
           name="Goals"
           component={Goals}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Goalwin"
+          component={Goalwin}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Start"
+          component={Start}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -1,26 +1,20 @@
 import * as React from "react";
-import { StyleSheet, View, Pressable, Text, Image } from "react-native";
+import { StyleSheet, View, Pressable, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
 const Schedule = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
   });
 
   return (
     <View style={styles.schedule}>
-      <Pressable style={styles.button} onPress={() => {}}>
-          <Text style={styles.startTraining}>Começar treino</Text>
-      </Pressable>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ChooseTrain")}>
+        <Text style={styles.startTraining}>Começar treino</Text>
+      </TouchableOpacity>
       <Text style={[styles.weCreateA, styles.center]}>
         Ao completar a quantidade de treinos, procure algum de nossos
         professores!
@@ -36,14 +30,16 @@ const Schedule = () => {
           contentFit="cover"
           source={require("../assets/ellipse-1.png")}
         />
-        <Text style={[styles.text, styles.textFlexBox, styles.center]}>78%</Text>
+        <Text style={[styles.center, styles.textFlexBox, styles.text]}>78%</Text>
+        <Text style={[styles.central]}>Seu treino:</Text>
       </View>
-      <Text style={[styles.weCreateYour, styles.textFlexBox, styles.center]}>Seu treino:</Text>
-      <Image
-        style={styles.scheduleChild}
-        contentFit="cover"
-        source={require("../assets/arrow-4.png")}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Gender")}>
+        <Image
+          style={styles.scheduleChild}
+          contentFit="cover"
+          source={require("../assets/arrow-4.png")}
+        />
+      </TouchableOpacity>
       <Image
         style={[styles.blackWgLogo2Icon, styles.blackIconPosition]}
         contentFit="cover"
@@ -61,27 +57,34 @@ const styles = StyleSheet.create({
     left: "50%",
     marginLeft: -130,
   },
+  central: {
+    marginTop: -380,
+    marginLeft: 48,
+    fontSize: 26,
+    fontFamily: "Poppins_semibold",
+    width: 287,
+    color: "#0a0615",
+  },
   grahLayout: {
     height: 254,
     top: 52,
+    left: 95,
     position: "absolute",
     borderRadius: 23,
   },
   textFlexBox: {
     color: "#0a0615",
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
     textAlign: "center",
+    marginRight: 100,
     position: "absolute",
-    left: "50%",
+    left: 120,
   },
   blackIconPosition: {
     left: "50%",
     position: "absolute",
   },
   startTraining: {
-    top: 16,
+    top: 10,
     left: 76,
     fontSize: 20,
     lineHeight: 19,
@@ -108,9 +111,9 @@ const styles = StyleSheet.create({
   },
   weCreateA: {
     top: 516,
-    left: 57,
-    fontSize: 15,
-    lineHeight: 21,
+    left: 62,
+    fontSize: 16,
+    fontFamily: "Poppins_regular",
     color: "#0b0616",
     width: 262,
     textAlign: "center",
@@ -118,16 +121,15 @@ const styles = StyleSheet.create({
   },
   grahChild: {
     width: 227,
-    marginLeft: -55,
+    marginLeft: -92,
   },
   grahItem: {
-    left: 79,
     width: 217,
     marginLeft: -55,
   },
   text: {
     top: 64,
-    left: 57,
+    left: 144,
     fontSize: 50,
     lineHeight: 44,
     fontWeight: "700",
@@ -140,15 +142,6 @@ const styles = StyleSheet.create({
     height: 359,
     marginLeft: -55,
     position: "absolute",
-  },
-  weCreateYour: {
-    top: 131,
-    left: 44,
-    fontSize: 26,
-    lineHeight: 31,
-    width: 287,
-    fontWeight: "600",
-    color: "#0a0615",
   },
   scheduleChild: {
     top: 28,

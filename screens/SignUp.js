@@ -8,14 +8,10 @@ import Checkbox from "./components/checkbox";
 const SignUp = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-    Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-    Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
     Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
     Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
     Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
     Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-    Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-    Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
   });
 
   return (
