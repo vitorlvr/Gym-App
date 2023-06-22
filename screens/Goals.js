@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Pressable, View, ScrollView, Text, Image } from "react-native";
+import { StyleSheet, TouchableOpacity, View, ScrollView, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
@@ -12,89 +12,68 @@ const Goals = () => {
     Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
   });
   return (
-    <View style={estilos.metas}>
+    <View style={styles.metas}>
       <Image
-        style={estilos.logotipoPretoWg2Icone}
+        style={styles.logotipoPretoWg2Icone}
         contentFit="cover"
         source={require("../assets/black-wg-logo-2.png")}
       />
-      <ScrollView
-        style={estilos.paiGrupo}
-        showsVerticalScrollIndicator={true}
-        showsHorizontalScrollIndicator={true}
-      >
-        <View style={[estilos.envoltorioQuadro, estilos.posicaoQuadro]}>
-          <View style={[estilos.paiQuadro, estilos.caixaSombraQuadro]}>
-            <View>
-              <Text style={[estilos.titulo, estilos.corTitulo]}>
-                Corrida de 5 km
-              </Text>
-              <Text style={[estilos.titulo1, estilos.corTitulo]}>
-                20min 1-10 julho
-              </Text>
-            </View>
-            <Text style={estilos.texto}>09:00</Text>
-          </View>
+      <View style={[styles.quadro1, styles.caixaSombraQuadro]}>
+        <View style={styles.Layoutesquerda}>
+          <Text style={[styles.titulo, styles.corTitulo]}>Corrida de 5 km</Text>
+          <Text style={[styles.titulo1, styles.corTitulo]}>20min</Text>
         </View>
-        <View style={[estilos.containerQuadro, estilos.posicaoQuadro]}>
-          <View style={estilos.caixaSombraQuadro}>
-            <View>
-              <Text style={[estilos.titulo, estilos.corTitulo]}>Resistência</Text>
-              <Text style={[estilos.titulo1, estilos.corTitulo]}>
-                20min 10-15 julho
-              </Text>
-            </View>
-            <Text style={[estilos.texto1, estilos.tipografiaTexto]}>09</Text>
-            <Text style={[estilos.texto2, estilos.tipografiaTexto]}>08:50</Text>
-          </View>
+        <View style={styles.Layoutdireita}>
+          <Text style={styles.texto}>09:00</Text>
+          <Text style={styles.data}>01-10 julho</Text>
         </View>
-        <View style={[estilos.visaoGrupo, estilos.posicaoVisaoGrupo]}>
-          <View style={[estilos.visaoQuadro, estilos.caixaSombraQuadro]}>
-            <View style={estilos.envoltorioTitulo}>
-              <Text style={[estilos.titulo4, estilos.corTitulo]}>
-                <Text style={estilos.tipografiaTitulo}>Desafio Plank</Text>
-                <Text style={estilos.min}>10min 1- 15 julho</Text>
-              </Text>
-            </View>
-            <Text style={estilos.texto}>08:50</Text>
-          </View>
-          <Image
-            style={estilos.wgc2023GloboPrimarioVermelho3}
-            contentFit="cover"
-            source={require("../assets/wgc-2023-primary-globe-red-3.png")}
-          />
+      </View>
+      <View style={[styles.quadro2, styles.caixaSombraQuadro]}>
+        <View style={styles.Layoutesquerda}>
+          <Text style={[styles.titulo, styles.corTitulo]}>Resistência</Text>
+          <Text style={[styles.texto1]}>08:50</Text>
         </View>
-      </ScrollView>
-      <View style={[estilos.joeMaior1Pai, estilos.layoutJoe]}>
+        <View style={styles.Layoutdireita}>
+          <Text style={styles.data1}>10-15 julho</Text>
+        </View>
+      </View>
+      <View style={[styles.quadro3, styles.caixaSombraQuadro]}>
+        <View style={styles.Layoutesquerda}>
+          <Text style={styles.titulo}>Desafio Plank</Text>
+          <Text style={styles.min}>10min</Text>
+        </View>
+        <View style={styles.Layoutdireita}>
+          <Text style={styles.texto}>08:50</Text>
+          <Text style={styles.data}>15-20 julho</Text>
+        </View>
+      </View>
+      <Image
+        style={styles.wgc2023GloboPrimarioVermelho3}
+        contentFit="cover"
+        source={require("../assets/wgc-2023-primary-globe-red-3.png")}
+      />
+      <View style={[styles.joeMaior1Pai, styles.layoutJoe]}>
         <Image
-          style={[estilos.joeMaior1, estilos.layoutJoe]}
+          style={[styles.joeMaior1, styles.layoutJoe]}
           contentFit="cover"
           source={require("../assets/joe-maior-1.png")}
         />
         <Text
-          style={[estilos.escolherAtividadesTh, estilos.posicaoVisaoGrupo]}
+          style={[styles.escolherAtividadesTh, styles.posicaoVisaoGrupo]}
         >Desafios Fitness</Text>
       </View>
-      <View style={[estilos.metasFilho, estilos.layoutMetas]} />
-      <View style={[estilos.metasItem, estilos.layoutMetas]} />
-      <Pressable style={[estilos.retanguloPai, estilos.layoutFilhoGrupo]}>
-        <View style={[estilos.filhoGrupo, estilos.layoutFilhoGrupo]} />
-        <Text style={[estilos.avancar, estilos.tipografiaTitulo]}>Avançar</Text>
-      </Pressable>
+      <View style={[styles.metasFilho, styles.layoutMetas]} />
+      <View style={[styles.metasItem, styles.layoutMetas]} />
+      <TouchableOpacity style={styles.retanguloPai}>
+        <View style={[styles.filhoGrupo, styles.layoutFilhoGrupo]} />
+        <Text style={[styles.avancar, styles.tipografiaTitulo]}>Avançar</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-const estilos = StyleSheet.create({
-  posicaoQuadro: {
-    height: 87,
-    left: 3,
-    right: 0,
-    position: "absolute",
-  },
+const styles = StyleSheet.create({
   caixaSombraQuadro: {
-    paddingVertical: 16,
-    paddingHorizontal: 20,
     shadowOpacity: 1,
     elevation: 4,
     shadowRadius: 4,
@@ -104,13 +83,46 @@ const estilos = StyleSheet.create({
     },
     shadowColor: "rgba(0, 0, 0, 0.25)",
     borderRadius: 8,
-    left: 0,
-    top: 0,
-    right: 0,
-    alignItems: "center",
-    flexDirection: "row",
+    borderWidth: 2,
+    borderColor: "#000",
     backgroundColor: "#fff",
-    position: "absolute",
+  },
+  data: {
+    marginTop: 5,
+    marginRight: 135,
+  },
+  Layoutesquerda: {
+  },
+  Layoutdireita: {
+    marginTop: 10,
+    marginRight: 10,
+  },
+  quadro1: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    top: 365,
+    width: 364,
+    left: "50%",
+    marginLeft: -182,
+  },
+  quadro2: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    top: 382,
+    width: 364,
+    left: "50%",
+    marginLeft: -182,
+  },
+  quadro3: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    top: 399,
+    width: 364,
+    left: "50%",
+    marginLeft: -182,
   },
   corTitulo: {
     color: "#000",
@@ -124,7 +136,6 @@ const estilos = StyleSheet.create({
     fontSize: 16,
   },
   posicaoVisaoGrupo: {
-    left: 0,
     position: "absolute",
   },
   layoutJoe: {
@@ -133,14 +144,8 @@ const estilos = StyleSheet.create({
   },
   layoutMetas: {
     height: 26,
-    width: 424,
+    width: "100%",
     backgroundColor: "#c41230",
-    left: 0,
-    position: "absolute",
-  },
-  layoutFilhoGrupo: {
-    height: 47,
-    width: 332,
     position: "absolute",
   },
   tipografiaTitulo: {
@@ -148,34 +153,39 @@ const estilos = StyleSheet.create({
     fontWeight: "700",
   },
   logotipoPretoWg2Icone: {
-    marginTop: -414,
-    marginLeft: -76.5,
     width: 153,
     height: 31,
-    left: "50%",
-    top: "50%",
+    top: 30,
     position: "absolute",
+    marginLeft: -77,
+    left: "50%",
   },
   titulo: {
     textAlign: "left",
     fontFamily: "Poppins_bold",
-    fontWeight: "700",
-    lineHeight: 26,
     color: "#000",
-    fontSize: 16,
+    fontSize: 18,
+    marginTop: 5,
+    marginLeft: 5,
   },
   titulo1: {
     fontSize: 18,
-    lineHeight: 29,
     fontFamily: "Poppins_regular",
     textAlign: "left",
   },
-  texto: {
-    textAlign: "center",
+  min: {
     color: "#7c7c8a",
     fontFamily: "Poppins_regular",
-    lineHeight: 26,
     fontSize: 16,
+    marginLeft: 10,
+    marginTop: 5,
+  },
+  texto: {
+    color: "#7c7c8a",
+    fontFamily: "Poppins_regular",
+    fontSize: 16,
+    marginLeft: 10,
+    marginTop: 5,
   },
   paiQuadro: {
     justifyContent: "space-between",
@@ -204,27 +214,12 @@ const estilos = StyleSheet.create({
   embrulhoTitulo: {
     width: 284,
   },
-  visaoQuadro: {
-    justifyContent: "space-between",
-  },
   wgc2023GloboPrimarioVermelho3: {
     top: 403,
-    left: 138,
-    width: 0,
+    left: "50%",
+    marginLeft: -75,
     height: 0,
     position: "absolute",
-  },
-  visaoGrupo: {
-    right: 3,
-    height: 84,
-    top: 0,
-  },
-  paiGrupo: {
-    top: 368,
-    right: 25,
-    left: 27,
-    position: "absolute",
-    flex: 1,
   },
   joeMaior1: {
     left: 172,
@@ -246,7 +241,8 @@ const estilos = StyleSheet.create({
   },
   joeMaior1Pai: {
     top: 79,
-    left: -34,
+    left: "50%",
+    marginLeft: -166,
     width: 490,
   },
   metasFilho: {
@@ -275,13 +271,19 @@ const estilos = StyleSheet.create({
     position: "absolute",
   },
   retanguloPai: {
-    top: 732,
-    left: 38,
+    height: 47,
+    width: 332,
+    position: "absolute",
+    top: 731,
+    left: "50%",
+    marginLeft: -166,
+    height: 47,
+    borderRadius: 12,
+    backgroundColor: "#c41230",
   },
   metas: {
-    borderRadius: 23,
     backgroundColor: "#e1e1e1",
-    height: 910,
+    height: "100%",
     overflow: "hidden",
     width: "100%",
     flex: 1,

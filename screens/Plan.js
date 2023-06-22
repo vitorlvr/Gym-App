@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Pressable, Text, Dimensions, Image } from "react-native";
+import { StyleSheet, View, TouchableOpacity, Text, Dimensions, Image } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
@@ -7,29 +7,21 @@ import { useFonts } from 'expo-font';
 const Plan = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
+    Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
+    Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
   });
 
   return (
     <View style={styles.plan}>
       <View style={styles.bg} />
-      <Pressable
-        style={[styles.button, styles.bg1ShadowBox]}
-        onPress={() => {}}
-      >
-        <View style={[styles.bg1, styles.bg1ShadowBox]} />
+      <TouchableOpacity style={[styles.button, styles.bg1ShadowBox]} onPress={() => { }}>
         <Text style={[styles.startTraining, styles.textTypo]}>Continue</Text>
-      </Pressable>
+      </TouchableOpacity>
       <Text style={[styles.weCreateYour, styles.textTypo]}>{`Selecione sua 
 assinatura`}</Text>
-      <Pressable style={styles.rectangleParent}>
+      <TouchableOpacity style={styles.rectangleParent}>
         <View style={[styles.groupChild, styles.groupLayout]} />
         <Image
           style={[styles.groupItem, styles.groupItemLayout]}
@@ -51,8 +43,8 @@ assinatura`}</Text>
         <Text style={[styles.r12990mensal, styles.diasDeTesteTypo]}>
           R$129,90/mensal
         </Text>
-      </Pressable>
-      <Pressable style={[styles.rectangleGroup, styles.groupLayout]}>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.rectangleGroup, styles.groupLayout]}>
         <Pressable style={[styles.rectanglePressable, styles.groupLayout]} />
         <Image
           style={[styles.ellipseIcon, styles.groupItemLayout]}
@@ -62,7 +54,7 @@ assinatura`}</Text>
         <Text style={[styles.diasDeTeste, styles.diasDeTesteTypo]}>
           7 Dias de teste grátis
         </Text>
-      </Pressable>
+      </TouchableOpacity>
       <Image
         style={styles.planChild}
         contentFit="cover"
@@ -257,17 +249,15 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   button: {
-    top: 726,
-    left: 15,
-    shadowRadius: 4,
-    elevation: 4,
-    width: 345,
-    height: 53,
-    shadowColor: "rgba(0, 0, 0, 0.25)",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
+    height: 47,
+    width: 332,
+    position: "absolute",
+    top: 731,
+    left: "50%",
+    marginLeft: -166,
+    height: 47,
+    borderRadius: 12,
+    backgroundColor: "#c41230",
   },
   weCreateYour: {
     top: 107,
