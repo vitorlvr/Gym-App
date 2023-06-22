@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Pressable, View, ScrollView, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
@@ -6,99 +6,93 @@ import { useFonts } from 'expo-font';
 const Goals = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
+    Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
+    Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
   });
   return (
-    <View style={styles.goals}>
+    <View style={estilos.metas}>
       <Image
-        style={styles.blackWgLogo2Icon}
+        style={estilos.logotipoPretoWg2Icone}
         contentFit="cover"
         source={require("../assets/black-wg-logo-2.png")}
       />
       <ScrollView
-        style={styles.groupParent}
+        style={estilos.paiGrupo}
         showsVerticalScrollIndicator={true}
         showsHorizontalScrollIndicator={true}
       >
-        <View style={[styles.frameWrapper, styles.framePosition]}>
-          <View style={[styles.frameParent, styles.frameShadowBox]}>
+        <View style={[estilos.envoltorioQuadro, estilos.posicaoQuadro]}>
+          <View style={[estilos.paiQuadro, estilos.caixaSombraQuadro]}>
             <View>
-              <Text style={[styles.title, styles.titleClr]}>
+              <Text style={[estilos.titulo, estilos.corTitulo]}>
                 Corrida de 5 km
               </Text>
-              <Text style={[styles.title1, styles.titleClr]}>
+              <Text style={[estilos.titulo1, estilos.corTitulo]}>
                 20min 1-10 julho
               </Text>
             </View>
-            <Text style={styles.text}>09:00</Text>
+            <Text style={estilos.texto}>09:00</Text>
           </View>
         </View>
-        <View style={[styles.frameContainer, styles.framePosition]}>
-          <View style={styles.frameShadowBox}>
+        <View style={[estilos.containerQuadro, estilos.posicaoQuadro]}>
+          <View style={estilos.caixaSombraQuadro}>
             <View>
-              <Text style={[styles.title, styles.titleClr]}>Resistência</Text>
-              <Text style={[styles.title1, styles.titleClr]}>
+              <Text style={[estilos.titulo, estilos.corTitulo]}>Resistência</Text>
+              <Text style={[estilos.titulo1, estilos.corTitulo]}>
                 20min 10-15 julho
               </Text>
             </View>
-            <Text style={[styles.text1, styles.textTypo]}>09</Text>
-            <Text style={[styles.text2, styles.textTypo]}>08:50</Text>
+            <Text style={[estilos.texto1, estilos.tipografiaTexto]}>09</Text>
+            <Text style={[estilos.texto2, estilos.tipografiaTexto]}>08:50</Text>
           </View>
         </View>
-        <View style={[styles.groupView, styles.groupViewPosition]}>
-          <View style={[styles.frameView, styles.frameShadowBox]}>
-            <View style={styles.titleWrapper}>
-              <Text style={[styles.title4, styles.titleClr]}>
-                <Text style={styles.titleTypo}>{`Plank Challenge
-`}</Text>
-                <Text style={styles.min}>10min 1- 15 julho</Text>
+        <View style={[estilos.visaoGrupo, estilos.posicaoVisaoGrupo]}>
+          <View style={[estilos.visaoQuadro, estilos.caixaSombraQuadro]}>
+            <View style={estilos.envoltorioTitulo}>
+              <Text style={[estilos.titulo4, estilos.corTitulo]}>
+                <Text style={estilos.tipografiaTitulo}>Desafio Plank</Text>
+                <Text style={estilos.min}>10min 1- 15 julho</Text>
               </Text>
             </View>
-            <Text style={styles.text}>08:50</Text>
+            <Text style={estilos.texto}>08:50</Text>
           </View>
           <Image
-            style={styles.wgc2023PrimaryGlobeRed3}
+            style={estilos.wgc2023GloboPrimarioVermelho3}
             contentFit="cover"
             source={require("../assets/wgc-2023-primary-globe-red-3.png")}
           />
         </View>
       </ScrollView>
-      <View style={[styles.joeMaior1Parent, styles.joeLayout]}>
+      <View style={[estilos.joeMaior1Pai, estilos.layoutJoe]}>
         <Image
-          style={[styles.joeMaior1, styles.joeLayout]}
+          style={[estilos.joeMaior1, estilos.layoutJoe]}
           contentFit="cover"
           source={require("../assets/joe-maior-1.png")}
         />
         <Text
-          style={[styles.chooseActivitiesTh, styles.groupViewPosition]}
-        >{`DESAFIOS
-FITNESS`}</Text>
+          style={[estilos.escolherAtividadesTh, estilos.posicaoVisaoGrupo]}
+        >Desafios Fitness</Text>
       </View>
-      <View style={[styles.goalsChild, styles.goalsLayout]} />
-      <View style={[styles.goalsItem, styles.goalsLayout]} />
-      <Pressable style={[styles.rectangleParent, styles.groupChildLayout]}>
-        <View style={[styles.groupChild, styles.groupChildLayout]} />
-        <Text style={[styles.avanar, styles.titleTypo]}>Avançar</Text>
+      <View style={[estilos.metasFilho, estilos.layoutMetas]} />
+      <View style={[estilos.metasItem, estilos.layoutMetas]} />
+      <Pressable style={[estilos.retanguloPai, estilos.layoutFilhoGrupo]}>
+        <View style={[estilos.filhoGrupo, estilos.layoutFilhoGrupo]} />
+        <Text style={[estilos.avancar, estilos.tipografiaTitulo]}>Avançar</Text>
       </Pressable>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  framePosition: {
+const estilos = StyleSheet.create({
+  posicaoQuadro: {
     height: 87,
     left: 3,
     right: 0,
     position: "absolute",
   },
-  frameShadowBox: {
+  caixaSombraQuadro: {
     paddingVertical: 16,
     paddingHorizontal: 20,
     shadowOpacity: 1,
@@ -118,42 +112,42 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     position: "absolute",
   },
-  titleClr: {
+  corTitulo: {
     color: "#000",
     textAlign: "left",
   },
-  textTypo: {
+  tipografiaTexto: {
     marginLeft: 150,
     color: "#7c7c8a",
-    fontFamily: "Roboto_regular",
+    fontFamily: "Poppins_regular",
     lineHeight: 26,
     fontSize: 16,
   },
-  groupViewPosition: {
+  posicaoVisaoGrupo: {
     left: 0,
     position: "absolute",
   },
-  joeLayout: {
+  layoutJoe: {
     height: 255,
     position: "absolute",
   },
-  goalsLayout: {
+  layoutMetas: {
     height: 26,
     width: 424,
     backgroundColor: "#c41230",
     left: 0,
     position: "absolute",
   },
-  groupChildLayout: {
+  layoutFilhoGrupo: {
     height: 47,
     width: 332,
     position: "absolute",
   },
-  titleTypo: {
-    fontFamily: "Roboto_bold",
+  tipografiaTitulo: {
+    fontFamily: "Poppins_bold",
     fontWeight: "700",
   },
-  blackWgLogo2Icon: {
+  logotipoPretoWg2Icone: {
     marginTop: -414,
     marginLeft: -76.5,
     width: 153,
@@ -162,70 +156,70 @@ const styles = StyleSheet.create({
     top: "50%",
     position: "absolute",
   },
-  title: {
+  titulo: {
     textAlign: "left",
-    fontFamily: "Roboto_bold",
+    fontFamily: "Poppins_bold",
     fontWeight: "700",
     lineHeight: 26,
     color: "#000",
     fontSize: 16,
   },
-  title1: {
+  titulo1: {
     fontSize: 18,
     lineHeight: 29,
-    fontFamily: "Roboto_regular",
+    fontFamily: "Poppins_regular",
     textAlign: "left",
   },
-  text: {
+  texto: {
     textAlign: "center",
     color: "#7c7c8a",
-    fontFamily: "Roboto_regular",
+    fontFamily: "Poppins_regular",
     lineHeight: 26,
     fontSize: 16,
   },
-  frameParent: {
+  paiQuadro: {
     justifyContent: "space-between",
   },
-  frameWrapper: {
+  embrulhoQuadro: {
     top: 112,
   },
-  text1: {
+  texto1: {
     textAlign: "left",
   },
-  text2: {
+  texto2: {
     textAlign: "center",
   },
-  frameContainer: {
+  containerQuadro: {
     top: 224,
   },
-  min: {
-    fontFamily: "Roboto_regular",
+  minuto: {
+    fontFamily: "Poppins_regular",
   },
-  title4: {
+  titulo4: {
     textAlign: "left",
     lineHeight: 26,
     color: "#000",
     fontSize: 16,
   },
-  titleWrapper: {
+  embrulhoTitulo: {
     width: 284,
   },
-  frameView: {
+  visaoQuadro: {
     justifyContent: "space-between",
   },
-  wgc2023PrimaryGlobeRed3: {
+  wgc2023GloboPrimarioVermelho3: {
     top: 403,
     left: 138,
     width: 0,
     height: 0,
     position: "absolute",
   },
-  groupView: {
+  visaoGrupo: {
     right: 3,
     height: 84,
     top: 0,
   },
-  groupParent: {
+  paiGrupo: {
     top: 368,
     right: 25,
     left: 27,
@@ -237,7 +231,7 @@ const styles = StyleSheet.create({
     width: 318,
     top: 0,
   },
-  chooseActivitiesTh: {
+  escolherAtividadesTh: {
     top: 116,
     fontSize: 26,
     lineHeight: 31,
@@ -250,25 +244,25 @@ const styles = StyleSheet.create({
     textAlign: "center",
     alignItems: "center",
   },
-  joeMaior1Parent: {
+  joeMaior1Pai: {
     top: 79,
     left: -34,
     width: 490,
   },
-  goalsChild: {
+  metasFilho: {
     top: 317,
   },
-  goalsItem: {
+  metasItem: {
     top: 91,
   },
-  groupChild: {
+  filhoGrupo: {
     borderRadius: 12,
     backgroundColor: "#c41230",
     width: 332,
     left: 0,
     top: 0,
   },
-  avanar: {
+  avancar: {
     marginTop: -11.5,
     marginLeft: -29,
     lineHeight: 24,
@@ -280,11 +274,11 @@ const styles = StyleSheet.create({
     top: "50%",
     position: "absolute",
   },
-  rectangleParent: {
+  retanguloPai: {
     top: 732,
     left: 38,
   },
-  goals: {
+  metas: {
     borderRadius: 23,
     backgroundColor: "#e1e1e1",
     height: 910,
