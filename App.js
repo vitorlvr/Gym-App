@@ -25,13 +25,13 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Plan"
-          component={Plan}
+          name="Goals"
+          component={Goals}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Goals"
-          component={Goals}
+          name="Plan"
+          component={Plan}
           options={{ headerShown: false }}
         />
         <Stack.Screen
