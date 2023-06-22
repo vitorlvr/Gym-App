@@ -53,7 +53,7 @@ const Treino = () => {
             <Text style={[styles.series, styles.corTexto]}>12 rep</Text>
           </View>
         </View>
-        <TouchableOpacity style={styles.wrapperBotao}>
+        <TouchableOpacity style={styles.wrapperBotao} onPress={() => navigation.navigate("Goals")}>
           <View style={[styles.botao, styles.flexBox]}>
             <Text style={[styles.textoBotao, styles.textoNegrito]}>Iniciar</Text>
           </View>

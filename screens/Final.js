@@ -6,10 +6,8 @@ import { useFonts } from 'expo-font';
 const Final = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
     Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
     Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-    Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
   });
   return (
     <View style={styles.final}>

@@ -1,57 +1,60 @@
-import * as React from "react";
-import { StyleSheet, Text, Pressable, View, TextInput, Image } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
 const Cardpayment = () => {
   const navigation = useNavigation();
+  const [texto, setTexto] = useState('');
+  const enviarNotificacao = () => {
+    Alert.alert('World Gym', 'Pagamento realizado com sucesso!');
+  };
+  const limparInputEEnviarNotificacao = () => {
+    setTexto('');
+    enviarNotificacao();
+  };
   const [] = useFonts({
-      Jost_medium: require('../assets/fonts/Jost_medium.ttf'),
-      Open_Sans_regular: require('../assets/fonts/Open_Sans_regular.ttf'),
-      Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
-      Poppins_medium: require('../assets/fonts/Poppins_medium.ttf'),
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
-      Poppins_bold: require('../assets/fonts/Poppins_bold.ttf'),
-      Rambla_regular: require('../assets/fonts/Rambla_regular.ttf'),
-      Rambla_bold: require('../assets/fonts/Rambla_bold.ttf'),
+    Poppins_regular: require('../assets/fonts/Poppins_regular.ttf'),
   });
 
   return (
     <View style={[styles.cardpayment, styles.cardpaymentShadowBox]}>
-      <Image
-        style={styles.cardpaymentChild}
-        contentFit="cover"
-        source={require("../assets/creditcard.png")}
-      />
-      <Text style={styles.text}>02/24</Text>
-      <Text style={styles.debitCard}>Debit Card</Text>
-      <Text style={[styles.text1, styles.textTypo]}>$1,200</Text>
-      <Image
-        style={styles.visa12Icon}
-        contentFit="cover"
-        source={require("../assets/visa1-2.png")}
-      />
-      <Pressable style={styles.rectangleParent}>
-        <Pressable style={[styles.groupChild, styles.groupLayout]} />
-        <Text style={[styles.request, styles.requestTypo]}>Request</Text>
-      </Pressable>
-      <Text style={[styles.text2, styles.textTypo]}>1234 **** **** ****</Text>
-      <View style={[styles.rectangleGroup, styles.rectangleGroupPosition]}>
-        <Pressable style={[styles.groupItem, styles.groupLayout]} />
+      <View style={styles.cartao}>
         <Image
-          style={styles.telegram1Icon}
+          style={styles.cardpaymentChild}
           contentFit="cover"
-          source={require("../assets/telegram-1.png")}
+          source={require("../assets/creditcard.png")}
         />
-        <Text style={[styles.transfer, styles.requestTypo]}>Transfer</Text>
+        <Text style={styles.text}>02/24</Text>
+        <Text style={styles.debitCard}>Debit Card</Text>
+        <Text style={[styles.text1, styles.textTypo]}>$1,200</Text>
+        <Image
+          style={styles.visa12Icon}
+          contentFit="cover"
+          source={require("../assets/visa1-2.png")}
+        />
+        <Text style={[styles.text2, styles.textTypo]}>1234 **** **** ****</Text>
       </View>
-      <Pressable
+      <TouchableOpacity style={[styles.groupChild, styles.groupLayout, styles.rectangleParent]} onPress={() => navigation.navigate("Final")}>
+        <Text style={[styles.request, styles.requestTypo]}>Request</Text>
+      </TouchableOpacity>
+      <View style={[styles.rectangleGroup, styles.rectangleGroupPosition]}>
+        <TouchableOpacity style={[styles.groupItem, styles.groupLayout]}>
+          <Image
+            style={styles.telegram1Icon}
+            contentFit="cover"
+            source={require("../assets/telegram-1.png")}
+          />
+          <Text style={[styles.transfer, styles.requestTypo]} onPress={limparInputEEnviarNotificacao}>Transfer</Text>
+        </TouchableOpacity>
+      </View>
+      <TouchableOpacity
         style={[styles.cardpaymentItem, styles.rectangleGroupPosition]}
       />
       <Text style={[styles.digiteOCdigo, styles.digiteOCdigoTypo]}>
         Digite o código PIN enviado ao seu telefone para confirmar o pagamento
       </Text>
-      <View style={styles.adicionarCartoParent}>
+      <TouchableOpacity style={styles.adicionarCartoParent}>
         <Text style={[styles.adicionarCarto, styles.digiteOCdigoTypo]}>
           Adicionar cartão
         </Text>
@@ -60,7 +63,7 @@ const Cardpayment = () => {
           contentFit="cover"
           source={require("../assets/plus-2.png")}
         />
-      </View>
+      </TouchableOpacity>
       <Image
         style={styles.cardpaymentInner}
         contentFit="cover"
@@ -76,6 +79,8 @@ const Cardpayment = () => {
         placeholder="Digite seu PIN"
         keyboardType="number-pad"
         secureTextEntry={true}
+        value={texto} 
+        onChangeText={setTexto}
       />
     </View>
   );
@@ -98,6 +103,10 @@ const styles = StyleSheet.create({
     fontFamily: "Rambla_regular",
     position: "absolute",
   },
+  cartao: {
+    left: "50%",
+    marginLeft: -189,
+  },
   groupLayout: {
     borderRadius: 20,
     left: 0,
@@ -110,11 +119,12 @@ const styles = StyleSheet.create({
     color: "#000",
     fontSize: 18,
     textAlign: "left",
-    fontFamily: "Rambla_regular",
+    fontFamily: "Poppins_regular",
     position: "absolute",
   },
   rectangleGroupPosition: {
-    left: 38,
+    left: "50%",
+    marginLeft: -150,
     height: 75,
     position: "absolute",
   },
@@ -135,7 +145,7 @@ const styles = StyleSheet.create({
     left: 243,
     textAlign: "left",
     color: "#fff",
-    fontFamily: "Rambla_regular",
+    fontFamily: "Poppins_regular",
     fontSize: 12,
     top: 391,
     position: "absolute",
@@ -144,7 +154,7 @@ const styles = StyleSheet.create({
     color: "#d6d6d6",
     left: 75,
     textAlign: "left",
-    fontFamily: "Rambla_regular",
+    fontFamily: "Poppins_regular",
     fontSize: 12,
     top: 391,
     position: "absolute",
@@ -164,12 +174,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#38f555",
   },
   request: {
-    left: 35,
-    top: 26,
+    top: 23,
+    left: "50%",
+    marginLeft: -34,
   },
   rectangleParent: {
     top: 688,
-    left: 208,
+    left: "50%",
+    marginLeft: 18,
     height: 75,
     width: 130,
     position: "absolute",
@@ -181,20 +193,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#fef744",
   },
   telegram1Icon: {
-    left: 14,
     width: 23,
     height: 25,
-    top: 26,
+    top: 25,
+    marginLeft: 8,
     position: "absolute",
   },
   transfer: {
-    top: 27,
-    left: 43,
+    top: 23,
+    left: "50%",
+    marginLeft: -28,
   },
   rectangleGroup: {
     top: 687,
     width: 130,
-    left: 38,
   },
   cardpaymentItem: {
     top: 115,
@@ -220,7 +232,8 @@ const styles = StyleSheet.create({
   },
   adicionarCarto: {
     fontSize: 20,
-    left: 0,
+    left: "50%",
+    marginLeft: -100,
     top: 0,
     fontFamily: "Poppins_regular",
     textAlign: "left",
@@ -234,26 +247,26 @@ const styles = StyleSheet.create({
   },
   adicionarCartoParent: {
     top: 137,
-    left: 104,
+    left: "50%",
+    marginLeft: -108,
     width: 210,
     height: 30,
     position: "absolute",
   },
   cardpaymentInner: {
-    top: 28,
-    left: 22,
+    top: 30,
+    left: 19,
     width: 24,
     height: 22,
     position: "absolute",
   },
   blackWgLogo2Icon: {
-    marginTop: -367,
-    marginLeft: -76.5,
-    top: "50%",
     width: 153,
     height: 31,
-    left: "50%",
+    top: 30,
     position: "absolute",
+    marginLeft: -77,
+    left: "50%",
   },
   frameTextinput: {
     marginLeft: -161.5,
@@ -273,7 +286,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   cardpayment: {
-    backgroundColor: "#fff",
+    backgroundColor: "#e7e7e7",
     shadowRadius: 40,
     elevation: 40,
     flex: 1,

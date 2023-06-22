@@ -25,6 +25,21 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Goals"
+          component={Goals}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Cardpayment"
+          component={Cardpayment}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Plan"
+          component={Plan}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Final"
           component={Final}
           options={{ headerShown: false }}
@@ -45,23 +60,8 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Plan"
-          component={Plan}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
           name="Train"
           component={Train}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Cardpayment"
-          component={Cardpayment}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Goals"
-          component={Goals}
           options={{ headerShown: false }}
         />
         <Stack.Screen

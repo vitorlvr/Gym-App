@@ -192,7 +192,6 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   blackWgLogo2Icon: {
-    position: "absolute",
     width: 153,
     height: 31,
     top: 30,
