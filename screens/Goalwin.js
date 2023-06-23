@@ -6,21 +6,23 @@ import { useFonts } from 'expo-font';
 const Goalwin = () => {
   const navigation = useNavigation();
   const [] = useFonts({
-      Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
+    Poppins_semibold: require('../assets/fonts/Poppins_semibold.ttf'),
   });
   return (
     <View style={styles.goalwin}>
-      <Image
-        style={styles.goalwinChild}
-        contentFit="cover"
-        source={require("../assets/arrow-4.png")}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Goals")}>
+        <Image
+          style={styles.goalwinChild}
+          contentFit="cover"
+          source={require("../assets/arrow-4.png")}
+        />
+      </TouchableOpacity>
       <Image
         style={[styles.blackWgLogo2Icon, styles.homePosition]}
         contentFit="cover"
         source={require("../assets/black-wg-logo-2.png")}
       />
-      <TouchableOpacity style={[styles.goalwinInner, styles.groupChildLayout]}>
+      <TouchableOpacity style={[styles.goalwinInner, styles.groupChildLayout]} onPress={() => navigation.navigate("Train")}>
         <Text style={[styles.home]}>Home</Text>
       </TouchableOpacity>
       <Image
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
   goalwinChild: {
     top: 30,
     left: 19,
+    marginTop: -422,
     width: 24,
     height: 22,
     position: "absolute",
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
     height: 47,
     borderRadius: 12,
     backgroundColor: "#c41230",
-  },  
+  },
   home: {
     fontSize: 16,
     lineHeight: 24,
@@ -76,7 +79,7 @@ const styles = StyleSheet.create({
     top: "50%",
     left: "50%",
     transform: [{ translateX: -23.5 }, { translateY: -12 }],
-  },  
+  },
   goalwinItem: {
     marginLeft: -198.5,
     top: 92,

@@ -40,7 +40,7 @@ const Gender = () => {
         <Text style={styles.startTraining}>Continue</Text>
       </TouchableOpacity>
       <TouchableOpacity style={[styles.gender1, styles.genderPosition1, selectedGender === 'female' && styles.selectedGender]}
-      onPress={() => setSelectedGender('female')}>
+        onPress={() => setSelectedGender('female')}>
         <View style={[styles.bg1, styles.bg1Position]} />
         <Text style={[styles.title, styles.titleTypo]}>Feminino</Text>
         <View style={[styles.rectangleParent, styles.groupChildLayout]}>
@@ -104,7 +104,7 @@ const Gender = () => {
         />
       </View>
       <TouchableOpacity style={[styles.genderActive, styles.genderPosition1, selectedGender === 'male' && styles.selectedGender]}
-      onPress={() => setSelectedGender('male')}>
+        onPress={() => setSelectedGender('male')}>
         <View style={[styles.bg4, styles.bg1Position]} />
         <Text style={[styles.title1, styles.titleTypo]}>Masculino</Text>
         <Image
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: "#e1e1e1",
     borderWidth: 2,
-  },  
+  },
   bgShadowBox: {
     shadowOpacity: 1,
     shadowOffset: {

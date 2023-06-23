@@ -64,11 +64,13 @@ const Cardpayment = () => {
           source={require("../assets/plus-2.png")}
         />
       </TouchableOpacity>
-      <Image
-        style={styles.cardpaymentInner}
-        contentFit="cover"
-        source={require("../assets/arrow-4.png")}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Plan")}>
+        <Image
+          style={styles.cardpaymentInner}
+          contentFit="cover"
+          source={require("../assets/arrow-4.png")}
+        />
+      </TouchableOpacity>
       <Image
         style={styles.blackWgLogo2Icon}
         contentFit="cover"
@@ -79,7 +81,7 @@ const Cardpayment = () => {
         placeholder="Digite seu PIN"
         keyboardType="number-pad"
         secureTextEntry={true}
-        value={texto} 
+        value={texto}
         onChangeText={setTexto}
       />
     </View>

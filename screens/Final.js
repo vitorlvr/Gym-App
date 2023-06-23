@@ -76,10 +76,13 @@ const styles = StyleSheet.create({
     marginLeft: -163,
   },
   bg1ShadowBox: {
-    shadowOpacity: 1,
+    shadowColor: "#000",
+    shadowRadius: 6,
+    elevation: 9.62,
+    shadowOpacity: 0.5,
     shadowOffset: {
-      width: 5,
-      height: 5,
+      width: 2,
+      height: 2,
     },
   },
   customerCareFlexBox: {
@@ -111,8 +114,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   finalChild: {
-    top: 30,
-    left: 19,
+    top: 28,
+    left: 22,
     width: 24,
     height: 22,
     position: "absolute",
@@ -154,14 +157,9 @@ const styles = StyleSheet.create({
   groupChild: {
     borderRadius: 16,
     backgroundColor: "#fff",
-    elevation: 4,
-    shadowRadius: 4,
-    shadowColor: "rgba(0, 0, 0, 0.25)",
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 5,
-      height: 5,
-    },
+    shadowColor: "rgba(128, 128, 128, 0.2)",
+    shadowRadius: 9.62,
+    elevation: 9.62,
     position: "absolute",
     height: 163,
     width: 326,
@@ -185,11 +183,6 @@ const styles = StyleSheet.create({
     shadowColor: "rgba(128, 128, 128, 0.2)",
     shadowRadius: 9.62,
     elevation: 9.62,
-    shadowOpacity: 1,
-    shadowOffset: {
-      width: 5,
-      height: 5,
-    },
     bottom: "0%",
     right: "0%",
     top: "0%",

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity, View, ScrollView, Text, Image } from "react-native";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
@@ -25,7 +25,7 @@ const Goals = () => {
         </View>
         <View style={styles.Layoutdireita}>
           <Text style={styles.texto}>09:00</Text>
-          <Text style={styles.data}>01-10 julho</Text>
+          <Text style={[styles.data, styles.position]}>01-10 julho</Text>
         </View>
       </View>
       <View style={[styles.quadro2, styles.caixaSombraQuadro]}>
@@ -43,7 +43,7 @@ const Goals = () => {
           <Text style={styles.min}>10min</Text>
         </View>
         <View style={styles.Layoutdireita}>
-          <Text style={styles.texto}>08:50</Text>
+          <Text style={styles.texto3}>08:50</Text>
           <Text style={styles.data}>15-20 julho</Text>
         </View>
       </View>
@@ -64,7 +64,7 @@ const Goals = () => {
       </View>
       <View style={[styles.metasFilho, styles.layoutMetas]} />
       <View style={[styles.metasItem, styles.layoutMetas]} />
-      <TouchableOpacity style={styles.retanguloPai}>
+      <TouchableOpacity style={styles.retanguloPai} onPress={() => navigation.navigate("Goalwin")}>
         <View style={[styles.filhoGrupo, styles.layoutFilhoGrupo]} />
         <Text style={[styles.avancar, styles.tipografiaTitulo]}>Avançar</Text>
       </TouchableOpacity>
@@ -83,13 +83,14 @@ const styles = StyleSheet.create({
     },
     shadowColor: "rgba(0, 0, 0, 0.25)",
     borderRadius: 8,
-    borderWidth: 2,
-    borderColor: "#000",
     backgroundColor: "#fff",
   },
   data: {
     marginTop: 5,
     marginRight: 135,
+  },
+  position: {
+    marginLeft: -150,
   },
   Layoutesquerda: {
   },
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     top: 365,
     width: 364,
+    height: 84,
     left: "50%",
     marginLeft: -182,
   },
@@ -112,6 +114,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     top: 382,
     width: 364,
+    height: 84,
     left: "50%",
     marginLeft: -182,
   },
@@ -121,8 +124,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     top: 399,
     width: 364,
+    height: 84,
     left: "50%",
     marginLeft: -182,
+  },
+  texto3: {
+    color: "#7c7c8a",
+    fontFamily: "Poppins_regular",
+    fontSize: 16,
+    marginLeft: 160,
+    marginTop: 12,
   },
   corTitulo: {
     color: "#000",
@@ -135,8 +146,15 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     fontSize: 16,
   },
+  data1: {
+    marginTop: 40,
+    left: "50%",
+    marginLeft: -205,
+  },
   posicaoVisaoGrupo: {
     position: "absolute",
+    marginLeft: 30,
+    width: 100,
   },
   layoutJoe: {
     height: 255,
@@ -165,27 +183,27 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_bold",
     color: "#000",
     fontSize: 18,
-    marginTop: 5,
-    marginLeft: 5,
+    marginTop: 10,
+    marginLeft: 10,
   },
   titulo1: {
-    fontSize: 18,
+    fontSize: 20,
+    marginLeft: 10,
     fontFamily: "Poppins_regular",
     textAlign: "left",
   },
   min: {
-    color: "#7c7c8a",
+    color: "#000",
     fontFamily: "Poppins_regular",
-    fontSize: 16,
+    fontSize: 20,
     marginLeft: 10,
-    marginTop: 5,
   },
   texto: {
     color: "#7c7c8a",
     fontFamily: "Poppins_regular",
     fontSize: 16,
     marginLeft: 10,
-    marginTop: 5,
+    marginTop: 12,
   },
   paiQuadro: {
     justifyContent: "space-between",
@@ -194,7 +212,12 @@ const styles = StyleSheet.create({
     top: 112,
   },
   texto1: {
-    textAlign: "left",
+    color: "#7c7c8a",
+    fontFamily: "Poppins_regular",
+    fontSize: 16,
+    marginLeft: 305,
+    marginTop: -8,
+    textAlign: "right",
   },
   texto2: {
     textAlign: "center",
@@ -222,7 +245,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   joeMaior1: {
-    left: 172,
+    left: 102,
     width: 318,
     top: 0,
   },
