@@ -92,8 +92,6 @@ const styles = StyleSheet.create({
   position: {
     marginLeft: -150,
   },
-  Layoutesquerda: {
-  },
   Layoutdireita: {
     marginTop: 10,
     marginRight: 10,

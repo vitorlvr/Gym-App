@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    top: Dimensions.get('window').height * 0.56, // Ajuste a posição vertical conforme necessário
-    left: Dimensions.get('window').width * 0.05, // Ajuste a posição horizontal conforme necessário
+    top: 250,
+    left: 45,
   },
   checkboxLabel: {
     marginLeft: 8,

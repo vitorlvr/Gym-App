@@ -30,6 +30,11 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Plan"
+          component={Plan}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="SignIn"
           component={SignIn}
           options={{ headerShown: false }}
@@ -37,11 +42,6 @@ const App = () => {
         <Stack.Screen
           name="SignUp"
           component={SignUp}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Plan"
-          component={Plan}
           options={{ headerShown: false }}
         />
         <Stack.Screen

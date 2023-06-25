@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
@@ -14,63 +14,71 @@ const SignIn = () => {
     });
 
     return (
-        <View style={styles.signIn}>
-            <View style={styles.signInChild} />
-            <View style={styles.signUpParent}>
-                <TouchableOpacity style={styles.signUp} onPress={() => { }}>
-                    <Text style={styles.signUp1}>Cadastre-se</Text>
-                </TouchableOpacity>
-                <Text
-                    style={[styles.dontHaveAn, styles.dontHaveAnClr]}
-                >Não possui uma conta?</Text>
-            </View>
-            <Text style={[styles.signInWith, styles.singInFlexBox]}>
-                Entrar com
-            </Text>
+        <ScrollView
+            contentContainerStyle={styles.container}
+            keyboardShouldPersistTaps="handled"
+        >
+            <View style={styles.signIn}>
+                <View style={styles.signInChild} />
+                <View style={styles.signUpParent}>
+                    <TouchableOpacity style={styles.signUp} onPress={() => navigation.navigate("SignUp")}>
+                        <Text style={styles.signUp1}>Cadastre-se</Text>
+                    </TouchableOpacity>
+                    <Text
+                        style={[styles.dontHaveAn, styles.dontHaveAnClr]}
+                    >Não possui uma conta?</Text>
+                </View>
+                <Text style={[styles.signInWith, styles.singInFlexBox]}>
+                    Entrar com
+                </Text>
                 <Text style={[styles.forgotPassword, styles.dontHaveAnClr]}>
                     Esqueceu sua senha?
                 </Text>
-            <TouchableOpacity style={styles.botao} onPress={() => { }} />
-            <Text style={styles.startTraining}>ENTRAR</Text>
-            <TextInput
-                style={[styles.input, styles.inputPosition]}
-                placeholder="Senha"
-                keyboardType="default"
-                secureTextEntry={true}
-            />
-            <TextInput
-                style={[styles.input1, styles.input1Position]}
-                placeholder="Número/ Email"
-            />
-            <Text style={[styles.singIn, styles.singInFlexBox]}>Login:</Text>
-            <Image
-                style={styles.signInItem}
-                contentFit="cover"
-                source={require("../assets/group-225.png")}
-            />
-            <View style={styles.logoSignin}>
-                <View style={[styles.logoSigninInner, styles.logoSigninInnerLayout]}>
-                    <View style={[styles.rectangleParent, styles.logoSigninInnerLayout]}>
-                        <View style={styles.groupChild} />
-                        <Text style={styles.worldGym}>WORLD GYM</Text>
+                <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate("Plan")} />
+                <Text style={styles.startTraining}>ENTRAR</Text>
+                <TextInput
+                    style={[styles.input, styles.inputPosition]}
+                    placeholder="Senha"
+                    keyboardType="default"
+                    secureTextEntry={true}
+                />
+                <TextInput
+                    style={[styles.input1, styles.input1Position]}
+                    placeholder="Número/ Email"
+                />
+                <Text style={[styles.singIn, styles.singInFlexBox]}>Login:</Text>
+                <Image
+                    style={styles.signInItem}
+                    contentFit="cover"
+                    source={require("../assets/group-225.png")}
+                />
+                <View style={styles.logoSignin}>
+                    <View style={[styles.logoSigninInner, styles.logoSigninInnerLayout]}>
+                        <View style={[styles.rectangleParent, styles.logoSigninInnerLayout]}>
+                            <View style={styles.groupChild} />
+                            <Text style={styles.worldGym}>WORLD GYM</Text>
+                        </View>
                     </View>
+                    <Image
+                        style={styles.wgc2023PrimaryGlobeRed2}
+                        contentFit="cover"
+                        source={require("../assets/wgc-2023-primary-globe-red-2.png")}
+                    />
                 </View>
                 <Image
-                    style={styles.wgc2023PrimaryGlobeRed2}
+                    style={styles.groupIcon}
                     contentFit="cover"
-                    source={require("../assets/wgc-2023-primary-globe-red-2.png")}
+                    source={require("../assets/group1.png")}
                 />
             </View>
-            <Image
-                style={styles.groupIcon}
-                contentFit="cover"
-                source={require("../assets/group2.png")}
-            />
-        </View>
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flexGrow: 1,
+    },
     dontHaveAnClr: {
         color: "#404b52",
         lineHeight: 23,
@@ -129,13 +137,14 @@ const styles = StyleSheet.create({
         textDecoration: "underline",
         color: "#000",
         textAlign: "center",
-        lineHeight: 19,
         fontSize: 13,
-        fontFamily: "Poppins_medium",
-        fontWeight: "500",
-        width: 85,
+        fontFamily: "Poppins_bold",
+        width: 88,
     },
+
     signUp: {
+        marginLeft: -30,
+        paddingRight: 50,
         left: "74.63%",
         top: "8.33%",
         position: "absolute",
@@ -267,8 +276,8 @@ const styles = StyleSheet.create({
         width: 274,
     },
     signInItem: {
-        top: 29,
-        left: 30,
+        top: 40,
+        left: 35,
         width: 23,
         height: 15,
         position: "absolute",
@@ -323,11 +332,11 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     groupIcon: {
-        height: "3.79%",
-        width: "35.41%",
+        height: "5.4%",
+        width: "72%",
         top: "76.6%",
         left: "50%",
-        transform: [{ translateX: "-50%" }], // Center the image horizontally
+        marginLeft: -94,
         maxWidth: "100%",
         overflow: "hidden",
         maxHeight: "100%",
