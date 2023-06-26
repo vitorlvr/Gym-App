@@ -21,9 +21,8 @@ const SignIn = () => {
             <View style={styles.signIn}>
                 <View style={styles.signInChild} />
                 <View style={styles.signUpParent}>
-                    <TouchableOpacity style={styles.signUp} onPress={() => navigation.navigate("SignUp")}>
-                        <Text style={styles.signUp1}>Cadastre-se</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.signUp1}>Cadastre-se</Text>
+                    <TouchableOpacity style={styles.signUp} onPress={() => navigation.navigate("SignUp")} />
                     <Text
                         style={[styles.dontHaveAn, styles.dontHaveAnClr]}
                     >Não possui uma conta?</Text>
@@ -140,13 +139,15 @@ const styles = StyleSheet.create({
         fontSize: 13,
         fontFamily: "Poppins_bold",
         width: 88,
+        marginLeft: 170,
     },
 
     signUp: {
-        marginLeft: -30,
-        paddingRight: 50,
+        marginLeft: -15,
         left: "74.63%",
-        top: "8.33%",
+        marginTop: -5,
+        width: 100,
+        height: 30,
         position: "absolute",
     },
     dontHaveAn: {
@@ -336,7 +337,7 @@ const styles = StyleSheet.create({
         width: "72%",
         top: "76.6%",
         left: "50%",
-        marginLeft: -94,
+        marginLeft: -96,
         maxWidth: "100%",
         overflow: "hidden",
         maxHeight: "100%",

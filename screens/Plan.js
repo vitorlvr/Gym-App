@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Pressable, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 import Carousel from "react-native-snap-carousel";
@@ -56,8 +56,8 @@ const Plan = () => {
   });
   return (
     <View style={styles.plan}>
-      <TouchableOpacity style={[styles.button, styles.textFlexBox]}>
-        <Text style={[styles.startTraining, styles.textTypo]} onPress={() => navigation.navigate("Cardpayment")}>Continue</Text>
+      <TouchableOpacity style={[styles.button, styles.textFlexBox]} onPress={() => navigation.navigate("Cardpayment")}>
+        <Text style={[styles.startTraining, styles.textTypo]}>Continue</Text>
       </TouchableOpacity>
       <Text
         style={[styles.selecioneSuaAssinatura, styles.textTypo]}
@@ -106,7 +106,7 @@ assinatura`}</Text>
         contentFit="cover"
         source={require("../assets/group-272.png")}
       />
-      <Carousel style={styles.carousel} data={[1, 2, 3]} renderItem={renderCarouselItem} sliderWidth={375} itemWidth={293} inactiveSlideOpacity={1} inactiveSlideScale={1} loop={true} containerCustomStyle={styles.carouselContainer}
+      <Carousel style={styles.carousel} data={[1, 2, 3]} renderItem={renderCarouselItem} sliderWidth={400} itemWidth={293} inactiveSlideOpacity={1} inactiveSlideScale={1} loop={true} containerCustomStyle={styles.carouselContainer}
         contentContainerCustomStyle={styles.carouselContentContainer}
 
       />
@@ -130,12 +130,13 @@ const styles = StyleSheet.create({
   textFlexBox: {
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
+    position: "relative",
   },
   textTypo: {
     textAlign: "center",
     fontFamily: "Poppins_semibold",
     fontWeight: "600",
+    position: "absolute",
   },
   frameChildLayout: {
     height: 66,
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
   selecioneSuaAssinatura: {
     top: 110,
     left: "50%",
-    marginLeft: -100,
+    marginLeft: -83,
     fontSize: 26,
     lineHeight: 31,
     color: "#0a0615",
@@ -413,7 +414,7 @@ const styles = StyleSheet.create({
     top: 25,
     left: 20,
     width: 23,
-    height: 20,
+    height: 23,
     position: "absolute",
   },
   blackWgLogo2Icon: {
@@ -432,11 +433,11 @@ const styles = StyleSheet.create({
     height: 812,
   },
   carouselContainer: {
-    marginBottom: 10,
+    marginBottom: 400,
+    marginTop: 50,
   },
   carouselContentContainer: {
-    paddingHorizontal: 10,
-    marginHorizontal: 20, // Ajuste o preenchimento horizontal conforme necessário
+    marginTop: -110,
   },
 });
 

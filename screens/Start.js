@@ -41,9 +41,6 @@ const Start = () => {
   );
 };
 
-const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -66,12 +63,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logoImage: {
-    width: windowWidth * 0.8,
-    height: windowWidth * 0.8,
+    width: 450,
+    height: 450,
     alignSelf: "center",
   },
   buttonContainer: {
-    marginTop: 550,
+    marginTop: 680,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",

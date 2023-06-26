@@ -31,7 +31,7 @@ const Final = () => {
 Pagamento feito 
 com sucesso.`}</Text>
         <Text style={styles.obrigadaPorEscolher}>
-          Obrigada por escolher a world gym
+          Obrigada por escolher a World Gym
         </Text>
       </View>
       <Text
@@ -48,8 +48,7 @@ Para qualquer dúvida, sinta-se à vontade para entrar em contato com nosso aten
 `}</Text>
       </View>
       <View style={[styles.button, styles.bg1ShadowBox]}>
-        <TouchableOpacity style={styles.bg1Position} onPress={() => navigation.navigate("Gender")} >
-          <View style={[styles.bg1, styles.bg1Position]} />
+        <TouchableOpacity style={[styles.bg1, styles.bg1Position]} onPress={() => navigation.navigate("Gender")} >
           <Text style={[styles.startTraining, styles.startTrainingFlexBox]}>
             Vamos Começar
           </Text>
@@ -95,15 +94,14 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "rgba(0, 0, 0, 0.64)",
     fontFamily: "Poppins_medium",
-    position: "absolute",
   },
   bg1Position: {
+    position: "relative",
     left: "0%",
     bottom: "0%",
     right: "0%",
     top: "0%",
     height: "100%",
-    position: "absolute",
     width: "100%",
   },
   bg: {
@@ -114,10 +112,10 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   finalChild: {
-    top: 28,
-    left: 22,
-    width: 24,
-    height: 22,
+    top: 45,
+    left: 40,
+    width: 23,
+    height: 23,
     position: "absolute",
   },
   finalItem: {
@@ -189,13 +187,15 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   startTraining: {
-    top: 16,
+    top: 20,
     left: "50%",
-    marginLeft: -87,
-    fontSize: 20,
+    marginLeft: -78,
+    height: "100%",
+    fontSize: 18,
     lineHeight: 19,
     fontFamily: "Poppins_semibold",
     color: "#fff",
+
   },
   button: {
     top: 728,
@@ -235,10 +235,10 @@ const styles = StyleSheet.create({
   blackWgLogo2Icon: {
     width: 153,
     height: 31,
-    left: "50%",
-    marginLeft: -76.5,
-    top: 30,
+    top: 50,
     position: "absolute",
+    marginLeft: -77,
+    left: "50%",
   },
   final: {
     borderRadius: 23,

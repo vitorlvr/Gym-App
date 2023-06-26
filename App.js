@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import * as Font from 'expo-font';
 
 // Importe a tela Start
 import Start from './screens/Start';
@@ -25,13 +26,13 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Start"
-          component={Start}
+          name="Plan"
+          component={Plan}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Plan"
-          component={Plan}
+          name="Start"
+          component={Start}
           options={{ headerShown: false }}
         />
         <Stack.Screen
