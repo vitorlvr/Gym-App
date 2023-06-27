@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable, Image } from "react-native";
+import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
-import { TouchableOpacity } from "react-native-web";
+
+import Navbar from "./navbar";
 
 const Profile = () => {
   const navigation = useNavigation();
@@ -76,10 +77,11 @@ const Profile = () => {
         contentFit="cover"
         source={require("../assets/cadeado-1.png")}
       />
-      <TouchableOpacity style={styles.rectangleParent} onPress={() => { }}>
+      <TouchableOpacity style={styles.rectangleParent} onPress={() => navigation.navigate("SignIn")}>
         <View style={styles.groupChild} />
         <Text style={styles.sair}>Sair</Text>
       </TouchableOpacity>
+      <Navbar />
     </View>
   );
 };
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
     height: 292,
     position: "absolute",
     left: "50%",
-    top: 30,
+    top: 50,
     marginLeft: -77,
     bottom: 593,
   },
@@ -212,16 +214,16 @@ const styles = StyleSheet.create({
   link1: {
     color: "#c4c4cc",
     fontFamily: "Poppins_medium",
+    marginTop: 4,
   },
   text5: {
     fontSize: 24,
-    lineHeight: 38,
     width: 111,
     textAlign: "center",
     color: "#ffd700",
     fontFamily: "Poppins_medium",
     fontWeight: "500",
-    height: 24,
+    height: "100%",
     display: "flex",
     top: 39,
     left: 12,

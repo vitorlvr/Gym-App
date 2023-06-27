@@ -4,6 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 import { Feather } from '@expo/vector-icons';
 
+import Navbar from "./navbar";
+
 const Goals = () => {
   const navigation = useNavigation();
   const [] = useFonts({
@@ -71,6 +73,7 @@ const Goals = () => {
         <View style={[styles.filhoGrupo, styles.layoutFilhoGrupo]} />
         <Text style={[styles.avancar, styles.tipografiaTitulo]}>Avançar</Text>
       </TouchableOpacity>
+      <Navbar />
     </View>
   );
 };

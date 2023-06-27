@@ -3,6 +3,8 @@ import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 
+import Navbar from "./navbar";
+
 const Treino = () => {
   const navigation = useNavigation();
   const [] = useFonts({
@@ -64,6 +66,7 @@ const Treino = () => {
         resizeMode="cover"
         source={require("../assets/pauseicon.png")}
       />
+      <Navbar />
     </View>
   );
 };
