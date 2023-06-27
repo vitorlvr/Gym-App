@@ -24,7 +24,7 @@ const Treino = () => {
         />
       </TouchableOpacity>
       <Image
-        style={[styles.logoImagem, styles.posicaoLogo]}
+        style={styles.posicaoLogo}
         resizeMode="cover"
         source={require("../assets/black-wg-logo-2.png")}
       />
@@ -60,7 +60,7 @@ const Treino = () => {
         </TouchableOpacity>
       </View>
       <Image
-        style={[styles.iconePausa, styles.posicaoLogo]}
+        style={styles.iconePausa}
         resizeMode="cover"
         source={require("../assets/pauseicon.png")}
       />
@@ -74,8 +74,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   posicaoLogo: {
-    left: "50%",
+    width: 153,
+    height: 31,
+    top: 50,
     position: "absolute",
+    marginLeft: -77,
+    left: "50%",
   },
   posicaoDetalhes: {
     borderRadius: 8,
@@ -107,21 +111,11 @@ const styles = StyleSheet.create({
     marginLeft: -55,
   },
   setaImagem: {
-    top: 30,
-    left: 19,
-    width: 24,
-    height: 22,
+    top: 45,
+    left: 40,
+    width: 23,
+    height: 23,
     position: "absolute",
-    overflow: "hidden",
-    justifyContent: "center",
-  },
-  logoImagem: {
-    width: 153,
-    height: 31,
-    left: -19,
-    top: 30,
-    position: "absolute",
-    marginLeft: -77,
   },
   imagemTreino: {
     height: 364,
@@ -184,7 +178,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   iconePausa: {
-    marginLeft: -47.5,
+    left: "50%",
+    marginLeft: -48,
     top: 342,
     width: 96,
     height: 90,

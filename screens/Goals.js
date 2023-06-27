@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
+import { Feather } from '@expo/vector-icons';
 
 const Goals = () => {
   const navigation = useNavigation();
@@ -22,6 +23,7 @@ const Goals = () => {
         <View style={styles.Layoutesquerda}>
           <Text style={[styles.titulo, styles.corTitulo]}>Corrida de 5 km</Text>
           <Text style={[styles.titulo1, styles.corTitulo]}>20min</Text>
+          <Feather style={styles.relogio} name="clock" size={24} color="black" />
         </View>
         <View style={styles.Layoutdireita}>
           <Text style={styles.texto}>09:00</Text>
@@ -41,6 +43,7 @@ const Goals = () => {
         <View style={styles.Layoutesquerda}>
           <Text style={styles.titulo}>Desafio Plank</Text>
           <Text style={styles.min}>10min</Text>
+          <Feather style={styles.relogio} name="clock" size={24} color="black" />
         </View>
         <View style={styles.Layoutdireita}>
           <Text style={styles.texto3}>08:50</Text>
@@ -96,6 +99,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginRight: 10,
   },
+  relogio: {
+    marginTop: -30,
+    marginLeft: 80,
+  },
   quadro1: {
     display: "flex",
     flexDirection: "row",
@@ -103,8 +110,7 @@ const styles = StyleSheet.create({
     top: 365,
     width: 364,
     height: 84,
-    left: "50%",
-    marginLeft: -182,
+    left: 26,
   },
   quadro2: {
     display: "flex",
@@ -113,8 +119,7 @@ const styles = StyleSheet.create({
     top: 382,
     width: 364,
     height: 84,
-    left: "50%",
-    marginLeft: -182,
+    left: 26,
   },
   quadro3: {
     display: "flex",
@@ -123,8 +128,7 @@ const styles = StyleSheet.create({
     top: 399,
     width: 364,
     height: 84,
-    left: "50%",
-    marginLeft: -182,
+    left: 26,
   },
   texto3: {
     color: "#7c7c8a",
@@ -151,8 +155,8 @@ const styles = StyleSheet.create({
   },
   posicaoVisaoGrupo: {
     position: "absolute",
-    marginLeft: 30,
-    width: 100,
+    marginLeft: -20,
+    width: 200,
   },
   layoutJoe: {
     height: 255,
@@ -171,7 +175,7 @@ const styles = StyleSheet.create({
   logotipoPretoWg2Icone: {
     width: 153,
     height: 31,
-    top: 30,
+    top: 50,
     position: "absolute",
     marginLeft: -77,
     left: "50%",
