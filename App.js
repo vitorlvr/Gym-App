@@ -26,11 +26,6 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
           name="Start"
           component={Start}
           options={{ headerShown: false }}
@@ -88,6 +83,11 @@ const App = () => {
         <Stack.Screen
           name="Goalwin"
           component={Goalwin}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

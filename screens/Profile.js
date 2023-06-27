@@ -41,7 +41,6 @@ const Profile = () => {
       />
       <View style={styles.textFieldParent}>
         <View style={styles.textField4}>
-          <Text style={styles.text4} />
         </View>
         <View style={styles.link}>
           <Text style={styles.link1}>BÔNUS:</Text>
@@ -176,7 +175,7 @@ const styles = StyleSheet.create({
     top: 359,
     right: "55%",
     left: "10%",
-    height: 76,
+    height: 86,
     position: "absolute",
     width: 140,
   },
@@ -187,7 +186,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
-    paddingBottom: 60,
+    paddingBottom: 70,
     position: "absolute",
     left: 0,
     right: 0,
@@ -307,6 +306,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "50%",
     left: "50%",
+    marginLeft: 8,
     transform: [{ translateX: -23.5 }, { translateY: -12 }],
   },
   rectangleParent: {
